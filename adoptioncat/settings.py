@@ -37,6 +37,7 @@ CSRF_TRUSTED_ORIGINS = ['https://purranormal-26af1e8cdfe0.herokuapp.com', 'http:
 # Application definitionc
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
