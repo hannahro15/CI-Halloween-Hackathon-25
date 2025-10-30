@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['purranormal-26af1e8cdfe0.herokuapp.com', 'localhost', '127.0.0
 CSRF_TRUSTED_ORIGINS = ['https://purranormal-26af1e8cdfe0.herokuapp.com', 'http://localhost']
 
 
-# Application definition
+# Application definitionc
 
 INSTALLED_APPS = [
     'django.contrib.admin',
