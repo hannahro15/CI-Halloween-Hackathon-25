@@ -28,9 +28,9 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://purranormal-26af1e8cdfe0.herokuapp.com/', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['purranormal-26af1e8cdfe0.herokuapp.com', 'localhost', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['https://purranormal-26af1e8cdfe0.herokuapp.com/', 'http://localhost']
+CSRF_TRUSTED_ORIGINS = ['https://purranormal-26af1e8cdfe0.herokuapp.com', 'http://localhost']
 
 
 # Application definition
