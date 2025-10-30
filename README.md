@@ -6,9 +6,7 @@ Welcome to **Purranormal**!
 
  A spooky-themed hackathon project where we aim to find the *purr*-fect feline familiar for witches and spellcasters alike. Explore our unique selection of mystical cats, each with their own traits and personalities. Whether you're a seasoned witch or a budding sorcerer, Purranormal is here to help you discover your next magical companion.
 
-## Deployment Instructions
-
-## Wireframe
+## Wireframes
 
 ## User Stories
 
@@ -20,7 +18,7 @@ Welcome to **Purranormal**!
 - Django:
 - Django Admin:
 
-## Lighthouse Testing 
+## Features
 
 ## Credits 
 
@@ -28,6 +26,17 @@ Welcome to **Purranormal**!
 - Generative AI tools were used in various parts of this project.
 
 ### Media
+
+## Deployment Instructions
+
+## Meet the team
+We are Codebusters, the team behind Purranormal:
+- Hannah Olbrich - Scrum Master
+- Dion 
+- Aleksandra
+- Magdalena
+- Taiwo
+- Fanxiang Meng
 
 ## Acknowledgements
 - A big thank you to the Code Institute team and hackathon organisers for their continuous support and guidance throughout this project.
