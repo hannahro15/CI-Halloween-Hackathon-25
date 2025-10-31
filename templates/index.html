@@ -1,8 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <main class="container mt-4">
-        <h1 class="mb-3">Welcome to the Home Page</h1>
-        <p class="lead">Explore our site to learn more about cat adoption and how you can help.</p>
+    <main class="container-fluid p-0 halloween-home">
+        <section class="hero d-flex flex-column justify-content-center align-items-center text-center">
+          <div class="overlay"></div>
+          <div class="content text-light position-relative">
+              <h1 class="display-3 spooky-text mb-3">Welcome to Purranormal 🐈‍⬛</h1>
+              <p class="lead">Where every cat has a hauntingly adorable story 🕯️</p>
+          </div>
+        </section>
+
+        <section class="container text-center py-5 text-light">
+            <h2 class="spooky-text mb-4">Join Our Haunted Cat Haven</h2>
+            <p class="lead mb-4">
+                Explore mysterious stories of our feline friends and discover your perfect (purrfect!) companion.
+            </p>
+            <a href="{% url 'about' %}" class="btn btn-outline-warning">Learn More</a>
+        </section>
     </main>     
 {% endblock %}
