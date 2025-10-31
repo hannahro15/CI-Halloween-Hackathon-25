@@ -1,4 +1,4 @@
-pipasgiref==3.10.0
+asgiref==3.10.0
 dj-database-url==3.0.1
 Django==5.2.7
 django-allauth==65.12.1
