@@ -7,6 +7,7 @@ dj-database-url==3.0.1
 dj3-cloudinary-storage==0.0.6
 Django==5.2.7
 django-allauth==65.12.1
+django-jazzmin==3.0.1
 django-summernote==0.8.20.0
 gunicorn==23.0.0
 idna==3.11
