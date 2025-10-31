@@ -39,6 +39,7 @@ CSRF_TRUSTED_ORIGINS = ['https://purranormal-26af1e8cdfe0.herokuapp.com', 'http:
 # Application definitionc
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,6 +122,8 @@ ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_LOGIN_METHODS = {'email', 'username'}
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 AUTH_PASSWORD_VALIDATORS = [
