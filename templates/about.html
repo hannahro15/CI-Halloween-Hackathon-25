@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-{% load static %}
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale=1.0>
-    <title>About Page</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
     <h1>Welcome to the About Page</h1>
-    <p>Check out my <a href = '\'>Home Page</p>
-</body>
-</html>
+        <p>Check out my <a href = '\'>Home Page</p>
+{% endblock %}
