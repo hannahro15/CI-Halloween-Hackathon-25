@@ -7,6 +7,12 @@ Welcome to **Purranormal**!
  A spooky-themed hackathon project where we aim to find the *purr*-fect feline familiar for witches and spellcasters alike. Explore our unique selection of mystical cats, each with their own traits and personalities. Whether you're a seasoned witch or a budding sorcerer, Purranormal is here to help you discover your next magical companion.
 
 ## Wireframes
+Below is the main wireframe for Purranormal — This sketch gently maps out the layout we imagined for the main app page.
+
+![Wireframe screenshot](screenshots/wireframe.webp)
+
+Figure: Wireframe showing layout, primary navigation and the placement of the main cat-matching cards.
+
 
 ## User Stories
 
