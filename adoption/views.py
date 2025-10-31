@@ -12,3 +12,8 @@ def about(request):
 
 def contact(request):
     return render(request, 'contact.html')
+ 
+
+def tips(request):
+    """Render the Tips & Spells page"""
+    return render(request, 'tips.html')
