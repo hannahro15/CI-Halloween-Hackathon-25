@@ -11,3 +11,5 @@ media/
 
 # OS
 .DS_Store
+
+env.py
