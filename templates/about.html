@@ -1,14 +1,13 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale=1.0>
-    <title>About Page</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <h1>Welcome to the About Page</h1>
-    <p>Check out my <a href = '\'>Home Page</p>
-</body>
-</html>
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+
+<div class="about-panel">
+        <h1>Welcome to the Meet the Coven Page</h1>
+        <p>Check out my <a href = '\\'>Home Page</a></p>
+</div>
+
+{% endblock %}
