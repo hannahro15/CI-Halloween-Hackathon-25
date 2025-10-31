@@ -10,6 +10,15 @@ class Cat(models.Model):
     image = models.ImageField(upload_to='cat_images/')
     distance = models.IntegerField(default=0)
 
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return f"{self.name}"
+
 class CandidateList(models.Model):
-    cat = models.ForeignKey(Cat, on_delete=models.CASCADE)
+    cat = models.ForeignKey(Cat, on_delete=models.CASCADE, related_name="candidatecat")
+
+    def __str__(self):
+        return f"{self.cat.id}"
    
