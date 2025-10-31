@@ -8,6 +8,7 @@ class Cat(models.Model):
     speciality = models.CharField(max_length=100, default="CatSpecial")
     biography = models.TextField(max_length=400, default="CatBio")
     image = models.ImageField(upload_to='cat_images/')
+    distance = models.IntegerField(default=0)
 
 class CandidateList(models.Model):
     cat = models.ForeignKey(Cat, on_delete=models.CASCADE)
