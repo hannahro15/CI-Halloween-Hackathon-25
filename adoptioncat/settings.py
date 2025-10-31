@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
+if os.path.exists("env.py"):
+	import env
 load_dotenv()
 
 
