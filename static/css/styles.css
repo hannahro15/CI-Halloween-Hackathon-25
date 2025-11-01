@@ -8,7 +8,41 @@ body {
 }
 
 /* Navbar styles below */
+.navbar {
+    background: linear-gradient(90deg, #2c003e, #5a0d8a); 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: background 0.5s ease;
+}
 
+.navbar .nav-link {
+    color: #f5e1ff;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: #ffb3ff;
+    transform: scale(1.1);
+}
+
+.navbar .dropdown-menu {
+    background: rgba(44, 0, 62, 0.95); 
+    border: none;
+}
+
+.navbar .dropdown-item {
+    color: #f5e1ff;
+    transition: color 0.3s, background 0.3s;
+}
+
+.navbar .dropdown-item:hover {
+    color: #ffb3ff;
+    background: rgba(255, 179, 255, 0.1);
+}
+
+.navbar-toggler {
+    border-color: #ffb3ff;
+}
 
 /* Footer styles below */
 footer {
