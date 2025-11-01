@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Adopt a Cat{% endblock %}
+{% block title %}Purranormal{% endblock %}
+
+{% block extra_header %}<link rel="stylesheet" href='{% static "css/cardstyle.css" %}' />{% endblock %}
 
 {% block content %}
-    <h1>Adopt me! // Main App</h1>
-    <p>List all available cats for adoption</p>
+  <div class="container">
+    <div class="card-container" id="cardContainer"></div>
+  </div>
+{% endblock %}
+
+{% block extra_scripts %}
+  <script src='{% static "js/cardscript.js" %}'></script>
 {% endblock %}
