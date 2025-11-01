@@ -12,6 +12,3 @@ def about(request):
 
 def contact(request):
     return render(request, 'contact.html')
-
-def team_page(request):
-    return render(request, 'team-page.html')
