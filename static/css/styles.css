@@ -5,8 +5,10 @@
 
 
 /* Footer styles below */
-footer {
-    background-color: red;
+footer {background: linear-gradient(
+    rgba(19, 3, 29, 0),
+    rgba(19, 3, 29, 1)
+  );
     color: #fff1ea;
     text-align: center;
     padding: 20px 0;
