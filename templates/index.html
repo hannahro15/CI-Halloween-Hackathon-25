@@ -1,7 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Home Page{% endblock %}
+{% block title %}Welcome to Purranormal{% endblock %}
 
 {% block content %}
-    <h1>Welcome to the Home Page</h1>
+    <main class="container-fluid p-0 halloween-home">
+        <section class="hero d-flex flex-column justify-content-center align-items-center text-center">
+          <div class="overlay"></div>
+          <div class="content text-light position-relative">
+              <h1 class="display-3 spooky-text mb-3">Welcome to Purranormal</h1>
+              <p class="lead">Where every cat has a hauntingly adorable story </p>
+              <a href="{% url 'cat-adoption' %}" class="btn btn-warning btn-lg mt-3" id="meowButton">
+              <audio id="meowSound" src="{% static 'audio/meow.mp3' %}" preload="auto"></audio>
+                  Adopt Your Familiar
+              </a>
+          </div>
+        </section>
+
+        <section class="container text-center py-5 text-light">
+        <h2 class="spooky-text mb-4">Join Our Haunted Cat Haven</h2>
+        <p class="lead mb-4">
+            Explore mysterious stories of our feline friends and discover your perfect (purrfect!) companion.
+        </p>
+        <a href="{% url 'about' %}" class="btn btn-outline-warning">Learn More</a>
+        </section>
+    </main>     
+{% endblock %}
+
+
+{% block extra_scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const meowSound = new Audio("{% static 'audio/meow.mp3' %}");
+    meowSound.volume = 0.5; 
+
+    const btn = document.getElementById('meowButton');
+    if (btn) {
+        btn.addEventListener('mouseenter', () => {
+            meowSound.currentTime = 0;
+            meowSound.play();
+        });
+    }
+});
+</script>
 {% endblock %}

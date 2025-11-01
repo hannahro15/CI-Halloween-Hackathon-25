@@ -1,0 +1,68 @@
+
+
+.meet-coven-hero {
+	background-color: #0b0710; /* fallback */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: #fff;
+	padding: 3.5rem 1rem;
+	min-height: 60vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.meet-coven-overlay {
+	width: 100%;
+	max-width: 1100px;
+	background: linear-gradient(180deg, rgba(3,2,6,0.35), rgba(0,0,0,0.6));
+	border-radius: 12px;
+	padding: 1.25rem;
+	box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+.meet-coven { font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Segoe UI Emoji', Arial, sans-serif; }
+
+.coven-header h1 {
+	margin: 0 0 0.5rem 0;
+	color: #ffd88a;
+	font-size: 1.6rem;
+	line-height: 1.15;
+	text-shadow: 0 4px 18px rgba(0,0,0,0.6);
+}
+
+.lead { color: #f4e1aa; margin: 0 0 1rem 0; }
+.section-title { color: #ffb86b; margin-top: 0.8rem; letter-spacing: 1px; text-transform: uppercase; font-size: 0.95rem; }
+
+.team-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem; }
+.member-card {
+	background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.18));
+	border: 1px solid rgba(255,255,255,0.04);
+	padding: 0.9rem;
+	border-radius: 10px;
+	transition: transform .18s ease, box-shadow .18s ease;
+}
+.member-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.55); }
+.member-card h3 { margin: 0 0 0.4rem 0; color: #ffd9a6; font-size: 1.05rem; }
+.member-card p { margin: 0 0 0.45rem 0; color: #f1e6c2; }
+.member-card .power { font-style: italic; color: #fff1d6; }
+.member-card .links a { color: #ffe07a; text-decoration: none; }
+.member-card .links a:hover { text-decoration: underline; }
+
+/* Larger screens */
+@media (min-width: 700px) {
+	.team-grid { grid-template-columns: repeat(2, 1fr); }
+	.meet-coven-hero { padding: 4.5rem 2rem; }
+	.coven-header h1 { font-size: 2.2rem; }
+}
+
+@media (min-width: 1100px) {
+	.team-grid { grid-template-columns: repeat(3, 1fr); }
+	.meet-coven-hero { padding: 6rem 2rem; }
+	.coven-header h1 { font-size: 2.8rem; }
+}
+
+/* Tiny accessibility tweaks */
+.member-card a { outline: none; }
+.member-card a:focus { box-shadow: 0 0 0 3px rgba(255,168,60,0.18); border-radius: 4px; }
