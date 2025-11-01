@@ -15,6 +15,15 @@ Figure: Wireframe showing layout, primary navigation and the placement of the ma
 
 
 ## User Stories
+- As a **user**, I can access the home page to learn about the Purranormal platform and its purpose.
+- As a **user**, I want clear and intuative navigation so I can easily find what I am looking for.
+- As a **user**, I can swipe left or right on a cat's profile to indicate interest in adopting a cat.
+- As a **user**, I can register and log in to an account so I can manage my cat adoptions.
+- As a **user**, I can save cat profiles to my account so I can find them later.
+- As a **user**, I want the site to be responsive so that I can easily access the app on all devices.
+- As a **site admin**, I can add, edit, or remove cat profiles from the platform to keep the listings up to date.
+- As a **site admin**, I can to approve or review adoption requests so that each familiar is matched with a suitable user.
+- As a **site admin**, I want to ensure the site performs well across all devices so that users have a consistent experience.
 
 ## Technologies Used
 - HTML:
@@ -74,7 +83,7 @@ The deployed link of the app is https://purranormal-26af1e8cdfe0.herokuapp.com/
 
 ## Meet the team
 We are Codebusters, the team behind Purranormal:
-- Hannah Olbrich - Scrum Master
+- Hannah Olbrich - Scrum Master, Agile
 - Dion 
 - Aleksandra
 - Magdalena
