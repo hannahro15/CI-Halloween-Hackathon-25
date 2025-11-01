@@ -8,30 +8,36 @@
 {% endblock %}
 
 {% block content %}
+<main class="contact-hero" style="background-image: url('{% static 'images/moonlit-cat.png' %}');">
+  <div class="contact-overlay">
+    <section class="contact-section container text-center py-5">
+      <h1 class="spooky-text mb-3">📜 Contact the Coven</h1>
+      <p class="lead mb-5">
+        Have a question, a haunting experience, or just want to say *meow*?  
+        Send us a message — the spirits of the Purranormal realm are always listening 👻
+      </p>
 
+        <form method="POST" action="{% url 'contact' %}" class="contact-form mx-auto">
+                {% csrf_token %}
+                <div class="mb-3 text-start">
+                    <label for="name" class="form-label">Your Witchy name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name..." required>
+                </div>
 
+                <div class="mb-3 text-start">
+                    <label for="email" class="form-label">Spirit Channel (Email)</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email..." required>
+                </div>
 
-    <form method="POST" action="{% url 'contact' %}" class="contact-form mx-auto">
-            {% csrf_token %}
-            <div class="mb-3 text-start">
-            <label for="name" class="form-label">Your Witchy name</label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name..." required>
-            </div>
+                <div class="mb-3 text-start">
+                    <label for="message" class="form-label">Message to the Coven</label>
+                    <textarea id="message" name="message" class="form-control" rows="5" placeholder="Type your mystical message here..." required></textarea>
+                </div>
 
-            <div class="mb-3 text-start">
-            <label for="email" class="form-label">Spirit Channel (Email)</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email..." required>
-            </div>
-
-            <div class="mb-3 text-start">
-            <label for="message" class="form-label">Message to the Coven</label>
-            <textarea id="message" name="message" class="form-control" rows="5" placeholder="Type your mystical message here..." required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-warning btn-lg mt-3" id="contactButton">
-            Send Your Message 💫
-            </button>
-        </form>
+                <button type="submit" class="btn btn-warning btn-lg mt-3" id="contactButton">
+                    Send Your Message 💫
+                </button>
+            </form>
     </section>
   </div>
 </main>
