@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Cat, CandidateList
+from .models import Cat, CandidateList, UserProfile
 # Register your models here.
 @admin.register(Cat)
 class CatAdmin(SummernoteModelAdmin):
@@ -18,4 +18,5 @@ class CatAdmin(SummernoteModelAdmin):
     list_filter = ('id', 'age',)
     summernote_fields = ('biography',)
 
-admin.site.register(CandidateList)  
+admin.site.register(CandidateList)
+admin.site.register(UserProfile)
