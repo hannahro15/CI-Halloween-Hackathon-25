@@ -18,8 +18,8 @@ def cat_adoption(request):
 def index(request):
     return render(request, 'index.html')
 
-def about(request):
-    return render(request, 'about.html')
+def team_page(request):
+    return render(request, 'team-page.html')
 
 def contact(request):
     return render(request, 'contact.html')
