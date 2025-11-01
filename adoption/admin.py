@@ -17,3 +17,5 @@ class CatAdmin(SummernoteModelAdmin):
     search_fields = ['name', 'speciality',]
     list_filter = ('id', 'age',)
     summernote_fields = ('biography',)
+
+admin.site.register(CandidateList)  
