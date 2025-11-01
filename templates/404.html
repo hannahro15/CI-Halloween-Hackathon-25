@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/404.css' %}">
+
+<div class="container">
+    <div class="row my-5 py-md-5">
+        <div class="text-center">
+            <h1>404: Page not found!</h1>
+            <br>
+            <p class="text-center" id="error-message">
+                Oops! This page has slipped into the mist like a ghostly meow... Better creeping back to safety!
+            </p>
+            <p>
+                <a href="{% url 'index' %}" class="btn btn-lg btn-light m-1">Go back to home page!</a>
+            </p>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

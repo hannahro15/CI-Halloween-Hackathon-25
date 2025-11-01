@@ -28,9 +28,6 @@ def tips(request):
     """Render the Tips & Spells page"""
     return render(request, 'tips.html')
 
-def team_page(request):
-    return render(request, 'team-page.html')
-
 def add_to_list(request, cat_id):
     """
     add a cat to the user's candidatelist — called by static/js/cardscript.js
@@ -75,3 +72,9 @@ def api_cats(request):
             "distance": c.distance,
         })
     return JsonResponse({"cats": data})
+
+def page_404(request):
+    return render(request, '404.html')
+
+def page_500(request):
+    return render(request, '500.html')
