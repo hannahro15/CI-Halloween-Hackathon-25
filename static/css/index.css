@@ -14,7 +14,7 @@ body {
 .hero {
     position: relative;
     height: 90vh;
-    background: url("../images/spookky-cats.png") center center / cover no-repeat;
+    background: url("../images/background.jpg") center center / cover no-repeat;
 }
 
 .hero .content {

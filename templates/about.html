@@ -3,67 +3,68 @@
 
 {% block title %}Meet the Coven — Purranormal{% endblock %}
 
-{% block content %}
-
+{% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
 
+{% block content %}
 <main class="meet-coven-hero" style="background-image: url('{% static 'images/background.jpg' %}');">
-        <div class="meet-coven-overlay">
-                <section class="meet-coven">
-                        <header class="coven-header">
-                                <h1>🧙‍♀️ Meet the Coven – Purranormal Team</h1>
-                                <p class="lead">Welcome to the mystical minds behind Purranormal, the magical cat-matching app! 🌙<br>
-                                Here’s who’s casting spells, brewing potions, and enchanting the digital realm to help witches find their perfect familiar.</p>
-                        </header>
+    <div class="meet-coven-overlay">
+        <section class="meet-coven text-center text-light">
+            <header class="coven-header mb-5">
+                <h1 class="spooky-text mb-3">🧙‍♀️ Meet the Coven – Purranormal Team</h1>
+                <p class="lead">
+                    Welcome to the mystical minds behind Purranormal, the magical cat-matching app! 🌙<br>
+                    Here’s who’s casting spells, brewing potions, and enchanting the digital realm to help witches find their perfect familiar.
+                </p>
+            </header>
 
-                        <h2 class="section-title">Team Members</h2>
+            <h2 class="section-title spooky-text mb-4">Team Members</h2>
 
-                        <div class="team-grid">
-                                <article class="member-card">
-                                        <h3>Hannah – High Witch / Scrum Mistress 🧙‍♀️</h3>
-                                        <p>Guiding the coven, managing spell flow (PRs & project management), and keeping chaos at bay.</p>
-                                        <p class="power"><strong>Magical Power:</strong> Can summon the perfect pull request with a flick of her wand.</p>
-                                        <p class="links">🔗 <a href="https://www.linkedin.com/in/hannaholbrich/">LinkedIn</a> | 🐱 <a href="https://github.com/hannahro15">GitHub</a></p>
-                                </article>
+            <div class="team-grid container">
+                <article class="member-card">
+                    <h3>Hannah – High Witch / Scrum Mistress 🧙‍♀️</h3>
+                    <p>Guiding the coven, managing spell flow (PRs & project management), and keeping chaos at bay.</p>
+                    <p class="power"><strong>Magical Power:</strong> Can summon the perfect pull request with a flick of her wand.</p>
+                    <p class="links">🔗 <a href="https://www.linkedin.com/in/hannaholbrich/" target="_blank">LinkedIn</a> | 🐱 <a href="https://github.com/hannahro15" target="_blank">GitHub</a></p>
+                </article>
 
-                                <article class="member-card">
-                                        <h3>Taiwo – Keeper of the Home Page 🏠✨</h3>
-                                        <p>Summoning the welcoming aura for all witches who enter Purranormal.</p>
-                                        <p class="power"><strong>Magical Power:</strong> Brings pages to life with enchanting layouts.</p>
-                                        <p class="links">🔗 <a href="#">LinkedIn</a> | 🐱 <a href="#">GitHub</a></p>
-                                </article>
+                <article class="member-card">
+                    <h3>Taiwo – Keeper of the Home Page 🏠✨</h3>
+                    <p>Summoning the welcoming aura for all witches who enter Purranormal.</p>
+                    <p class="power"><strong>Magical Power:</strong> Brings pages to life with enchanting layouts.</p>
+                    <p class="links">🔗 <a href="#">LinkedIn</a> | 🐱 <a href="#">GitHub</a></p>
+                </article>
 
-                                <article class="member-card">
-                                        <h3>Dion – Cat Adoption Conjuror 🐾</h3>
-                                        <p>Brewing the main cat-matching magic to create the perfect swipe spells.</p>
-                                        <p class="power"><strong>Magical Power:</strong> Can charm even the shiest familiar into a match.</p>
-                                        <p class="links">🔗 <a href="#">LinkedIn</a> | 🐱 <a href="#">GitHub</a></p>
-                                </article>
+                <article class="member-card">
+                    <h3>Dion – Cat Adoption Conjuror 🐾</h3>
+                    <p>Brewing the main cat-matching magic to create the perfect swipe spells.</p>
+                    <p class="power"><strong>Magical Power:</strong> Can charm even the shyest familiar into a match.</p>
+                    <p class="links">🔗 <a href="#">LinkedIn</a> | 🐱 <a href="#">GitHub</a></p>
+                </article>
 
-                                <article class="member-card">
-                                        <h3>Aleksandra – Archivist of the Arcane & Interface Oracle 🔮</h3>
-                                        <p>She documents the coven’s journey and designs visuals that shimmer with spellcraft.</p>
-                                        <p class="power"><strong>Magical Power:</strong> Transforms boring info into spellbinding visuals. She’s a frequent user of Purranormal because witches need cats, obviously.</p>
-                                        <p class="links">🔗 <a href="https://www.linkedin.com/in/aleksandra-proc/">LinkedIn</a> | 🐱 <a href="https://github.com/xAlex-an">GitHub</a></p>
-                                </article>
+                <article class="member-card">
+                    <h3>Aleksandra – Archivist of the Arcane & Interface Oracle 🔮</h3>
+                    <p>She documents the coven’s journey and designs visuals that shimmer with spellcraft.</p>
+                    <p class="power"><strong>Magical Power:</strong> Transforms boring info into spellbinding visuals.</p>
+                    <p class="links">🔗 <a href="https://www.linkedin.com/in/aleksandra-proc/" target="_blank">LinkedIn</a> | 🐱 <a href="https://github.com/xAlex-an" target="_blank">GitHub</a></p>
+                </article>
 
-                                <article class="member-card">
-                                        <h3>Magdalena – Gatekeeper of Authentication & Contact Portals 🔑</h3>
-                                        <p>Ensuring witches can safely log in, sign up, and send magical messages.</p>
-                                        <p class="power"><strong>Magical Power:</strong> Can conjure secure portals with a single incantation.</p>
-                                        <p class="links">🔗 <a href="#">LinkedIn</a> | 🐱 <a href="#">GitHub</a></p>
-                                </article>
+                <article class="member-card">
+                    <h3>Magdalena – Gatekeeper of Authentication & Contact Portals 🔑</h3>
+                    <p>Ensuring witches can safely log in, sign up, and send magical messages.</p>
+                    <p class="power"><strong>Magical Power:</strong> Can conjure secure portals with a single incantation.</p>
+                    <p class="links">🔗 <a href="#">LinkedIn</a> | 🐱 <a href="#">GitHub</a></p>
+                </article>
 
-                                <article class="member-card">
-                                        <h3>Fangxiang – Enchanter of Footer & Hackathon Banner 🎨</h3>
-                                        <p>Weaving mystical footnotes and spellbinding banners for our magical realm.</p>
-                                        <p class="power"><strong>Magical Power:</strong> Makes every page shine with a touch of magic.</p>
-                                        <p class="links">🔗 <a href="#">LinkedIn</a> | 🐱 <a href="#">GitHub</a></p>
-                                </article>
-                        </div>
-
-                </section>
-        </div>
+                <article class="member-card">
+                    <h3>Fangxiang – Enchanter of Footer & Hackathon Banner 🎨</h3>
+                    <p>Weaving mystical footnotes and spellbinding banners for our magical realm.</p>
+                    <p class="power"><strong>Magical Power:</strong> Makes every page shine with a touch of magic.</p>
+                    <p class="links">🔗 <a href="#">LinkedIn</a> | 🐱 <a href="#">GitHub</a></p>
+                </article>
+            </div>
+        </section>
+    </div>
 </main>
-
 {% endblock %}
