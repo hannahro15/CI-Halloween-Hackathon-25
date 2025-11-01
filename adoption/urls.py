@@ -8,8 +8,9 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('tips/', views.tips, name='tips'),
     path('contact/', views.contact, name='contact'),
-    path('team/', views.team_page, name='team-page'),
     path('add_to_list/<int:cat_id>/', views.add_to_list, name='add-to-list'),
+    path('404/', views.page_404, name='404-page'),
+    path('500/', views.page_500, name='500-page'),
 
     # API endpoint used by cardscript.js
     path('api/cats/', views.api_cats, name='api-cats'),
