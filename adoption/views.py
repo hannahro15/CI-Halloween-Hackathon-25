@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
 from django.views import generic
-from .models import Cat
+
+from .models import Cat, CandidateList
 
 class CatAdoption(generic.ListView):
     """
@@ -29,3 +31,21 @@ def tips(request):
 def team_page(request):
     return render(request, 'team-page.html')
 
+def api_cats(request):
+    """
+    GET /api/cats/ — return a JSON list of cats for the frontend JS to render.
+    """
+    cats = Cat.objects.all().order_by('name')
+    data = []
+    for c in cats:
+        data.append({
+            "id": c.id,
+            "name": c.name,
+            "age": c.age,
+            "breed": c.breed,
+            "speciality": c.speciality,
+            "biography": c.biography,
+            "image_url": c.image.url if getattr(c, "image", None) else None,
+            "distance": c.distance,
+        })
+    return JsonResponse({"cats": data})
