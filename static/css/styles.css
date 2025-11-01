@@ -1,0 +1,23 @@
+/* Anything that goes across all pages like background etc. */
+
+
+/* Navbar styles below */
+
+
+/* Footer styles below */
+footer {background: linear-gradient(
+    rgba(19, 3, 29, 0),
+    rgba(19, 3, 29, 1)
+  );
+    color: #fff1ea;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
