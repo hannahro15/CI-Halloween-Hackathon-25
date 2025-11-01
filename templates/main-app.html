@@ -1,33 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Adopt a Cat{% endblock %}
+{% block title %}Purranormal{% endblock %}
+
+{% block extra_header %}<link rel="stylesheet" href='{% static "css/cardstyle.css" %}' />{% endblock %}
 
 {% block content %}
-    <div class="row gx-1 gy-1 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 justify-content-evenly">
-        {% for cat in cat_list %}
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <!-- Cat image: show placeholder if missing -->
-                    {% if "placeholder" in cat.image.url %}
-                    <img src="{% static 'images/placeholder.webp' %}" class="img-fluid bg-light-subtle border rounded border-light-subtle p-2" alt="placeholder">
-                    {% else %}
-                    <img src="{{ cat.image.url }}" class="img-fluid border rounded p-2" alt="{{ cat.name }}" fetchpriority="high">
-                    {% endif %}
+  <div class="container">
+    <div class="card-container" id="cardContainer"></div>
+  </div>
+{% endblock %}
 
-                    <!-- Cat name and subtitle, links to cat detail page -->
-                    <div class="mb-3">
-                        <h4 class="card-title my-1">
-                                <span>{{ cat.name }}</span>
-                        </h4>
-                        <h5 class="card-subtitle">Speciality: {{ cat.speciality }}</h5>
-                        <p class="card-text">{{ cat.biography }}</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+{% block extra_scripts %}
+  <script src='{% static "js/cardscript.js" %}'></script>
 {% endblock %}

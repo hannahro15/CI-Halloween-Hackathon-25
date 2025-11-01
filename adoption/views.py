@@ -31,6 +31,32 @@ def tips(request):
 def team_page(request):
     return render(request, 'team-page.html')
 
+def add_to_list(request, cat_id):
+    """
+    add a cat to the user's candidatelist — called by static/js/cardscript.js
+    POST to /add_to_list/<cat_id>/ (no JSON body required)
+    """
+    if not request.user.is_authenticated:
+        return JsonResponse({"error": "authentication required"}, status=403)
+
+    cat = get_object_or_404(Cat, pk=cat_id)
+
+    # Get or create the CandidateList for this user, then add the cat to the M2M
+    candidate_list, created = CandidateList.objects.get_or_create(user=request.user)
+
+    # avoid duplicates: only add if not already present
+    added = False
+    if not candidate_list.cat.filter(pk=cat.pk).exists():
+        candidate_list.cat.add(cat)
+        added = True
+
+    return JsonResponse({
+        "ok": True,
+        "candidate_list_created": created,
+        "cat_added": added,
+        "cat_id": cat_id,
+    })
+
 def api_cats(request):
     """
     GET /api/cats/ — return a JSON list of cats for the frontend JS to render.
