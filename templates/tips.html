@@ -5,19 +5,38 @@
 
 {% block content %}
 
+{% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/tips.css' %}">
+{% endblock %}
 
-<main class="tips-hero" style="padding: 2rem;">
-	<section>
-		<h1>Tips & Spells</h1>
-		<p class="lead">Helpful hints for keeping your familiar happy and magical.</p>
+<main class="tips-hero" style="background-image: url('{% static 'images/background.jpg' %}');">
+	<div class="tips-overlay">
+		<section class="tips-container text-light">
+			<header class="tips-header text-center mb-4">
+				<h1 class="spooky-text">Welcome back, Wise Witch or Brave Witcher!</h1>
+				<p class="lead">Every magic wielder knows — a familiar isn’t just a companion. It’s a mystical bond that amplifies your power, keeps your potions bubbling, and your spells from misfiring.</p>
+			</header>
 
-		<ul>
-			<li>Keep a cosy bed near moonlight.</li>
-			<li>Offer treats after successful spell practice.</li>
-			<li>Schedule regular playtime to strengthen your bond.</li>
-		</ul>
-	</section>
+			<div class="tips-body">
+				<p>Through Purranormal, you can now summon your familiar from anywhere in the realm — no full moon required! 🌕</p>
+
+				<h2 class="subheading">🧙‍♂️ Here’s how the spell works:</h2>
+				<ol class="spell-steps">
+					<li>Open your crystal mirror (a.k.a. your phone) and gaze upon the familiars that await your call.</li>
+					<li>Swipe right if your heart stirs and your aura glows.</li>
+					<li>Swipe left if the stars don’t align.</li>
+				</ol>
+
+				<p class="note">When the cat senses your magic too — it’s a Fateful Match!</p>
+
+				<p>Each cat’s profile reveals its biography scroll — age, breed, and speciality. Some can sense moonlight, others guard your dreams, and a few… might try to hex your Wi-Fi. 🐾</p>
+
+				<p>So take your time, magic-maker. Listen to the whispers of the night — your perfect familiar will purr when the connection is true. 💫</p>
+
+				<blockquote class="final-quote">“Every cat is magic — you just need to find the one tuned to your heart.” 💜</blockquote>
+			</div>
+		</section>
+	</div>
 </main>
 
 {% endblock %}
