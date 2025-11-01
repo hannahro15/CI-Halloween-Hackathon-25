@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tips & Spells — Purranormal{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/tips.css' %}">
+
+<main class="tips-hero" style="padding: 2rem;">
+	<section>
+		<h1>Tips & Spells</h1>
+		<p class="lead">Helpful hints for keeping your familiar happy and magical.</p>
+
+		<ul>
+			<li>Keep a cosy bed near moonlight.</li>
+			<li>Offer treats after successful spell practice.</li>
+			<li>Schedule regular playtime to strengthen your bond.</li>
+		</ul>
+	</section>
+</main>
+
+{% endblock %}
