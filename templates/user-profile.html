@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-    <main class="container py-4">
+<main class="container py-4">
     <h1 class="text-center mb-4">{{ profile.user.username }}'s Spooky Sanctuary 🐾</h1>
 
     <div class="profile-card-grid" id="profileCats"></div>
@@ -16,12 +16,14 @@
     {% if not adopted_cats %}
         <p class="text-center text-muted mt-4">No adopted cats yet </p>
     {% endif %}
-    </main>
+</main>
 {% endblock %}
 
 
 {% block extra_scripts %}
 <script>
+    const cats = JSON.parse('{{ adopted_cats_json|safe }}');
+    const container = document.getElementById("profileCats");
 
 </script>
 {% endblock %}
