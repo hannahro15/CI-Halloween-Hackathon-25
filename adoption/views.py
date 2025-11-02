@@ -3,6 +3,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.views import generic
 
+import json
+
 from .models import Cat, CandidateList, UserProfile
 
 class CatAdoption(generic.ListView):
@@ -45,7 +47,7 @@ def profile_view(request):
             "breed": c.breed,
             "speciality": c.speciality,
             "biography": c.biography,
-            "image_url": c.image.url if getattr(c, "image", None) else None,
+            "image_url": c.image.url if getattr(c, "image", None) else "/static/images/placeholder.png"
         }
         for c in adopted_cats
     ])
