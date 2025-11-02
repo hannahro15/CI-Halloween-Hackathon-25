@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Welcome to the Coven – Purranormal{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+  <div class="auth-card text-center">
+    <h1 class="spooky-text">🎉 Welcome to the Coven!</h1>
+    <p class="text-light mb-4">
+      Your magical account has been created successfully. Check your Spirit Channel for a confirmation email!
+    </p>
+    <a href="{% url 'account_login' %}" class="btn btn-warning mt-3">Enter the Portal 🔮</a>
+  </div>
+</div>
+{% endblock %}
