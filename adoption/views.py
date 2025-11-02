@@ -58,9 +58,7 @@ def profile_view(request):
             "breed": c.breed,
             "speciality": c.speciality,
             "biography": c.biography,
-            "image_url": None  # Temporarily disable Cloudinary images
-
-            #"image_url": c.image.url if getattr(c, "image", None) else "/static/images/placeholder.png"
+            "image_url": c.image.url if getattr(c, "image", None) else "/static/images/placeholder.png"
         }
         for c in adopted_cats
     ])
