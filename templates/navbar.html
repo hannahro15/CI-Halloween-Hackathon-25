@@ -31,11 +31,17 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Account
+                Profile
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Signup</a></li>
+                {% if user.is_authenticated %}
+                    <li><a class="dropdown-item" href="{% url 'profile' %}">{{ user.username }}</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                    <li><a class="dropdown-item" href="{% url 'account_signup' %}">Signup</a></li>
+                {% endif %}
             </ul>
         </li>
       </ul>
