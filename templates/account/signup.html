@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Join the Coven – Purranormal{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+  <div class="auth-card">
+    <h1 class="spooky-text">🧙‍♀️ Join the Coven</h1>
+    <p class="text-light mb-4">Create your magical account and meet your purrfect familiar.</p>
+
+    <form method="POST" action="{% url 'account_signup' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-warning w-100 mt-3">Cast Spell ✨</button>
+    </form>
+
+    <p class="mt-3">Already a member? <a href="{% url 'account_login' %}">Enter the portal</a>.</p>
+  </div>
+</div>
+{% endblock %}
