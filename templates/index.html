@@ -119,13 +119,21 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const meowSound = new Audio("{% static 'audio/meow.mp3' %}");
-    meowSound.volume = 0.5; 
+    meowSound.volume = 0.5;
+    meowSound.load();
 
     const btn = document.getElementById('meowButton');
     if (btn) {
+        // 🖱 Desktop hover
         btn.addEventListener('mouseenter', () => {
             meowSound.currentTime = 0;
-            meowSound.play();
+            meowSound.play().catch(() => {});
+        });
+
+        // 📱 Mobile tap / click
+        btn.addEventListener('click', () => {
+            meowSound.currentTime = 0;
+            meowSound.play().catch(() => {});
         });
     }
 });
