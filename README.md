@@ -16,6 +16,7 @@ Welcome to **Purranormal**!
 - [Future features](#future-features)
 - [Credits](#credits)
 - [Deployment Instructions](#deployment-instructions)
+- [Project Management](#project-management)
 - [Meet the team](#meet-the-team)
 - [Acknowledgements](#acknowledgements)
 
@@ -111,7 +112,7 @@ Displays the team behind the project, their roles, and their contributions. Also
 ### Find a Cat Page
 Allows users to browse available cat profiles. Each profile includes image, name, traits and description of the the cat.
 
-![Find a cat page screenshot]()
+![Find a cat page screenshot](screenshots/find-a-cat-page.png)
 
 ---
 
@@ -143,11 +144,13 @@ As a team, we plan to continue developing the app beyond its initial demo scope.
 - **Notifications & reminders** – Implement push/email notifications for new matches, updates, or seasonal rituals.
 
 ## Credits
-- Background image created using [Canva](https://www.canva.com/) — used for visual consistency and thematic styling.
+
 ### Content
-- Generative AI tools were used in various parts of this project.
+- Generative AI tools such as ChatGPT and Copilot were used for ideation and code optimisation.
 
 ### Media
+- Background image created using [Canva](https://www.canva.com/) — used for visual consistency and thematic styling.
+- Background audio and images sourced from [Pixabay](https://pixabay.com) — free music for enhancing user experience.
 
 ## Deployment Instructions
 
@@ -187,6 +190,13 @@ Head back over to Heroku where the Deploy tab is.
 Heroku will receive code from Github and build app with the required packages. Hopefully once done the 'App has successfully been deployed message below' will appear. 
 3. Click 'View' to launch the new app. 
 The deployed link of the app is https://purranormal-26af1e8cdfe0.herokuapp.com/
+
+## Project Management
+
+Github projects Kanban board was used to manage the project tasks and to track the status of each task throughout the development process.
+
+![Kanban Board Screenshot](screenshots/kanban.png)
+
 
 ## Meet the team
 We are Codebusters, the team behind Purranormal:
