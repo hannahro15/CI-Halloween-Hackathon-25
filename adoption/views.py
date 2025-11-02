@@ -55,6 +55,7 @@ def profile_view(request):
     context = {
         'profile': profile,
         'adopted_cats':adopted_cats,
+        'adopted_cats_json': adopted_cats_json,
     }
     return render(request, 'user-profile.html', context)
 
