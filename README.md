@@ -35,6 +35,53 @@ Figure: Wireframe showing layout, primary navigation and the placement of the ma
 
 ## Features
 
+### Navigation Bar
+The navigation bar is present on all pages, providing easy access to the main sections of the site: Home, Meet the Coven, Find a Cat, Tips & Spells, and Contact. It also includes login and registration links for user accounts.
+
+![Navigation bar screenshot](screenshots/navbar.png)
+
+---
+
+### Home Page
+Introduces users to Purranormal. Highlights the themes and purpose of the platform. Includes Links to the app page and tips & spells page for quick navigation.
+
+![Homepage screenshot](screenshots\home-page.png)
+
+---
+
+### Meet the Coven Page
+Displays the team behind the project, their roles, and their contributions. Also includes LinkedIn and GitHub links for each team member.
+
+![Meet the coven page screenshot](screenshots\coven-page.png)
+
+---
+
+### Find a Cat Page
+Allows users to browse available cat profiles. Each profile includes image, name, traits and description of the the cat.
+
+![Find a cat page screenshot]()
+
+---
+
+### Tips & Spells Page
+Contains instructions on how to use the app.
+
+![Tips & Spells page screenshot](screenshots/tips-page.png)
+
+---
+
+### Contact Page
+Provides a form for users to reach out with questions or feedback.
+
+![Contact page screenshot](screenshots/contact-page.png)
+
+---
+
+### Account Login/Registration
+Enables users to create an account or log in to manage their cat adoptions.
+
+![Login/Reg screenshot]()
+
 ## Credits 
 
 ### Content
