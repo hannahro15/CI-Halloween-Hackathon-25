@@ -59,6 +59,17 @@ footer {
   width: 100%;
 }
 
+footer a {
+  color: #fff1ea;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
 .footer-container {
   max-width: 1000px;
   margin: 0 auto;
