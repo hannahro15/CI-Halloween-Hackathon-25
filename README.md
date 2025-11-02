@@ -64,7 +64,16 @@ Below is the visual palette used in the project:
 
 ## Features
 
-## Credits 
+## Future features
+
+As a team, we plan to continue developing the app beyond its initial demo scope. Our goal is to enhance usability, engagement, and magical matchmaking through the following features:
+
+- **Search & filters** – Add a search bar and filters (age, speciality, distance, availability) to help users find suitable cats quickly.
+- **Saved favourites & history** – Allow users to bookmark cat profiles and revisit previous matches or interactions.
+- **Notifications & reminders** – Implement push/email notifications for new matches, updates, or seasonal rituals.
+
+
+## Credits
 
 ### Content
 - Generative AI tools were used in various parts of this project.
