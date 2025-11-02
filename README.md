@@ -33,6 +33,17 @@ Figure: Wireframe showing layout, primary navigation and the placement of the ma
 - Django:
 - Django Admin:
 
+## Design choices
+
+This project includes several intentional design choices made to balance speed of development, accessibility, and a strong thematic visual identity:
+
+- Tech stack: built with Django to prioritise rapid development and easy deployment for a hackathon/demo environment. Django's admin speeds up content management.
+- User experience: a mobile-first, responsive layout with card-based cat profiles and clear calls-to-action to simplify adoption flows and make interaction intuitive on touch devices.
+- Visual design: a dark, purple-themed aesthetic chosen to reinforce the spooky/halloween brand while using high-contrast text and clear visual hierarchy for readability.
+- Accessibility: semantic HTML, descriptive alt text for images, and attention to contrast and touch target size to help users with different needs.
+- Static assets: images, CSS, and audio are served from the `static/` folder to keep the deployment straightforward; media usage was kept limited for faster builds.
+- Testing & maintainability: the focus was on core user journeys for the hackathon. 
+
 ## Colour palette
 The colour palette used in this project (hex values) with brief notes on usage:
 
