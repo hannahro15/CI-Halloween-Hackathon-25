@@ -40,7 +40,7 @@ def profile_view(request):
         'profile': profile,
         'adopted_cats':adopted_cats,
     }
-    return render(request, 'adoption/user-profile.html', context)
+    return render(request, 'user-profile.html', context)
 
 
 
