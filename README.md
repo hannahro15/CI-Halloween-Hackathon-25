@@ -74,7 +74,7 @@ As a team, we plan to continue developing the app beyond its initial demo scope.
 
 
 ## Credits
-
+- Background image created using [Canva](https://www.canva.com/) — used for visual consistency and thematic styling.
 ### Content
 - Generative AI tools were used in various parts of this project.
 
