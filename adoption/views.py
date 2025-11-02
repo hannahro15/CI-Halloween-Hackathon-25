@@ -1,8 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.views import generic
 
-from .models import Cat, CandidateList
+from .models import Cat, CandidateList, UserProfile
 
 class CatAdoption(generic.ListView):
     """
@@ -27,6 +28,21 @@ def contact(request):
 def tips(request):
     """Render the Tips & Spells page"""
     return render(request, 'tips.html')
+
+@login_required
+def profile_view(request):
+    """ Distpaly user profile with adopted cats"""
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    adopted_cats = profile.get_adopted_cats()
+
+    context = {
+        'profile': profile,
+        'adopted_cats':adopted_cats,
+    }
+    return render(request, 'adoption/user-profile.html', context)
+
+
 
 def add_to_list(request, cat_id):
     """
