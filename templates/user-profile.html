@@ -3,6 +3,10 @@
 
 {% block title %}{{ user.username }}'s Profile{% endblock %}
 
+{% block extra_header %}
+<link rel="stylesheet" href="{% static 'css/cardstyle.css' %}">
+{% endblock %}
+
 {% block content %}
     <main class="container-fluid p-0 halloween-home">
         <h1 class="h3 h-md-2 mb-2">{{ user.username }}'s Spooky Sanctuary</h1>
