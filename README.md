@@ -111,7 +111,7 @@ Displays the team behind the project, their roles, and their contributions. Also
 ### Find a Cat Page
 Allows users to browse available cat profiles. Each profile includes image, name, traits and description of the the cat.
 
-![Find a cat page screenshot]()
+![Find a cat page screenshot](screenshots/find-a-cat-page.png)
 
 ---
 
