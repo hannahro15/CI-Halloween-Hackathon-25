@@ -137,6 +137,13 @@ Enables users to create an account or log in to manage their cat adoptions.
 
 ![Sign-up screenshot](screenshots/signup-page.png)
 
+### Error Pages
+Custom 404 and 500 error pages to enhance user experience in case of navigation errors or server issues.
+
+![404 error page screenshot](screenshots/404-page.png)
+
+![500 error page screenshot](screenshots/500-page.png)
+
 ## Future features
 
 As a team, we plan to continue developing the app beyond its initial demo scope. Our goal is to enhance usability, engagement, and magical matchmaking through the following features:
