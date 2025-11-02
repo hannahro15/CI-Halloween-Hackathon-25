@@ -133,7 +133,9 @@ Provides a form for users to reach out with questions or feedback.
 ### Account Login/Registration
 Enables users to create an account or log in to manage their cat adoptions.
 
-![Login/Reg screenshot]()
+![Login screenshot](screenshots/login-page.png)
+
+![Sign-up screenshot](screenshots/signup-page.png)
 
 ## Future features
 
