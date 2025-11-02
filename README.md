@@ -39,12 +39,22 @@ Figure: Wireframe showing layout, primary navigation and the placement of the ma
 - As a **site admin**, I want to ensure the site performs well across all devices so that users have a consistent experience.
 
 ## Technologies Used
-- HTML:
-- CSS:
-- JavaScript:
-- Python:
-- Django:
-- Django Admin:
+The following technologies were used in the development of Purranormal:
+- **HTML:** Page structure  
+- **CSS:** Styling  
+- **JavaScript:** Interactivity  
+- **Python:** Backend logic  
+- **Django:** Web framework  
+- **Django Admin:** Data management  
+- **Heroku:** Deployment platform  
+- **Git:** Version control  
+- **GitHub:** Code hosting  
+- **VS Code:** IDE  
+- **Gunicorn:** WSGI server  
+- **PostgreSQL:** Database  
+- **Cloudinary:** Media storage  
+- **Whitenoise:** Static file management  
+
 
 ## Design choices
 
@@ -87,14 +97,14 @@ The navigation bar is present on all pages, providing easy access to the main se
 ### Home Page
 Introduces users to Purranormal. Highlights the themes and purpose of the platform. Includes Links to the app page and tips & spells page for quick navigation.
 
-![Homepage screenshot](screenshots\home-page.png)
+![Homepage screenshot](screenshots/home-page.png)
 
 ---
 
 ### Meet the Coven Page
 Displays the team behind the project, their roles, and their contributions. Also includes LinkedIn and GitHub links for each team member.
 
-![Meet the coven page screenshot](screenshots\coven-page.png)
+![Meet the coven page screenshot](screenshots/coven-page.png)
 
 ---
 
