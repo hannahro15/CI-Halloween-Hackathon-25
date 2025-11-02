@@ -1,8 +1,10 @@
+import json
+
+from django.contrib.auth.decorators import login_required
+from .models import Cat, CandidateList, UserProfile
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.views import generic
-
-from .models import Cat, CandidateList
 from .forms import ContactForm
 
 class CatAdoption(generic.ListView):
@@ -39,6 +41,38 @@ def thank_you(request):
 def tips(request):
     """Render the Tips & Spells page"""
     return render(request, 'tips.html')
+
+@login_required
+def profile_view(request):
+    """ Distpaly user profile with adopted cats"""
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    adopted_cats = profile.get_adopted_cats()
+
+    # Get JSON for JS cards that display cats
+    adopted_cats_json = json.dumps([
+        {
+            "id": c.id,
+            "name": c.name,
+            "age": c.age,
+            "breed": c.breed,
+            "speciality": c.speciality,
+            "biography": c.biography,
+            "image_url": None  # Temporarily disable Cloudinary images
+
+            #"image_url": c.image.url if getattr(c, "image", None) else "/static/images/placeholder.png"
+        }
+        for c in adopted_cats
+    ])
+
+    context = {
+        'profile': profile,
+        'adopted_cats':adopted_cats,
+        'adopted_cats_json': adopted_cats_json,
+    }
+    return render(request, 'user-profile.html', context)
+
+
 
 def add_to_list(request, cat_id):
     """

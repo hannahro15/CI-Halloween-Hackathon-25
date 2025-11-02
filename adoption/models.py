@@ -11,7 +11,7 @@ class UserProfile(models.Model):
         return f"{self.user.username}'s profile"
 
     def get_adopted_cats(self):
-        return Cat.objects.filter(candidatecat__user=self.user)# Returns all adopted cats
+        return Cat.objects.filter(candidate_lists__user=self.user)# Returns all adopted cats
 
 class Cat(models.Model):
     name = models.CharField(max_length=100, default="CatName")

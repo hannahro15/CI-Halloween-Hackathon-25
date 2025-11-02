@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ user.username }}'s Profile{% endblock %}
+
+{% block extra_header %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/cardstyle.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="container-fluid p-0 halloween-home">
+    <section class="container text-center py-5 text-light">
+        <h1 class="display-3 spooky-text mb-3">{{ profile.user.username }}'s  Spooky Sanctuary</h1>
+
+        <div class="profile-card-grid" id="profileCats"></div>
+
+        {% if not adopted_cats %}
+            <p class="text-center text-muted mt-4">No adopted cats yet </p>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}
+
+
+{% block extra_scripts %}
+<script>
+    const cats = JSON.parse('{{ adopted_cats_json|safe }}');
+    const container = document.getElementById("profileCats");
+
+
+    if (cats.length === 0) {
+        // Message if no cats
+        const message = document.createElement("p");
+        message.className = "lead text-muted mt-4";
+        message.textContent = "No adopted cats yet!";
+        container.parentElement.appendChild(message);
+    } else {
+    // Cat cards
+
+    cats.forEach(cat =>{
+        const div = document.createElement("div");
+        div.className = "profile-card";
+
+        const imageUrl = cat.image_url || "{% static 'images/placeholder.png' %}";
+
+        div.innerHTML = `
+            <img src="${imageUrl}" alt="${cat.name}">
+            <h3>${cat.name}</h3>
+            <p><strong>${cat.breed}</strong></p>
+            <p>${cat.biography.substring(0, 60)}...</p>
+        `;
+
+    container.appendChild(div);
+});
+}
+
+
+</script>
+{% endblock %}
