@@ -1,11 +1,11 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
-from django.http import JsonResponse
-from django.views import generic
-
 import json
 
+from django.contrib.auth.decorators import login_required
 from .models import Cat, CandidateList, UserProfile
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import JsonResponse
+from django.views import generic
+from .forms import ContactForm
 
 class CatAdoption(generic.ListView):
     """
@@ -25,7 +25,18 @@ def team_page(request):
     return render(request, 'team-page.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save() 
+            return redirect('thank-you')
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
+
+def thank_you(request):
+    return render(request, 'thank_you.html')
 
 def tips(request):
     """Render the Tips & Spells page"""
