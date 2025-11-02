@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.views import generic
 
 from .models import Cat, CandidateList
+from .forms import ContactForm
 
 class CatAdoption(generic.ListView):
     """
@@ -22,7 +23,15 @@ def team_page(request):
     return render(request, 'team-page.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save() 
+            return redirect('thank-you')
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
 
 def tips(request):
     """Render the Tips & Spells page"""
