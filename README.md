@@ -6,6 +6,16 @@ Welcome to **Purranormal**!
 
  A spooky-themed hackathon project where we aim to find the *purr*-fect feline familiar for witches and spellcasters alike. Explore our unique selection of mystical cats, each with their own traits and personalities. Whether you're a seasoned witch or a budding sorcerer, Purranormal is here to help you discover your next magical companion.
 
+## Table of Contents
+- [Wireframes](#wireframes)
+- [User Stories](#user-stories)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Credits](#credits)
+- [Deployment Instructions](#deployment-instructions)
+- [Meet the team](#meet-the-team)
+- [Acknowledgements](#acknowledgements)
+
 ## Wireframes
 Below is the main wireframe for Purranormal — This sketch gently maps out the layout we imagined for the main app page.
 
@@ -73,6 +83,53 @@ As a team, we plan to continue developing the app beyond its initial demo scope.
 - **Notifications & reminders** – Implement push/email notifications for new matches, updates, or seasonal rituals.
 
 
+### Navigation Bar
+The navigation bar is present on all pages, providing easy access to the main sections of the site: Home, Meet the Coven, Find a Cat, Tips & Spells, and Contact. It also includes login and registration links for user accounts.
+
+![Navigation bar screenshot](screenshots/navbar.png)
+
+---
+
+### Home Page
+Introduces users to Purranormal. Highlights the themes and purpose of the platform. Includes Links to the app page and tips & spells page for quick navigation.
+
+![Homepage screenshot](screenshots\home-page.png)
+
+---
+
+### Meet the Coven Page
+Displays the team behind the project, their roles, and their contributions. Also includes LinkedIn and GitHub links for each team member.
+
+![Meet the coven page screenshot](screenshots\coven-page.png)
+
+---
+
+### Find a Cat Page
+Allows users to browse available cat profiles. Each profile includes image, name, traits and description of the the cat.
+
+![Find a cat page screenshot]()
+
+---
+
+### Tips & Spells Page
+Contains instructions on how to use the app.
+
+![Tips & Spells page screenshot](screenshots/tips-page.png)
+
+---
+
+### Contact Page
+Provides a form for users to reach out with questions or feedback.
+
+![Contact page screenshot](screenshots/contact-page.png)
+
+---
+
+### Account Login/Registration
+Enables users to create an account or log in to manage their cat adoptions.
+
+![Login/Reg screenshot]()
+
 ## Credits
 - Background image created using [Canva](https://www.canva.com/) — used for visual consistency and thematic styling.
 ### Content
@@ -122,11 +179,11 @@ The deployed link of the app is https://purranormal-26af1e8cdfe0.herokuapp.com/
 ## Meet the team
 We are Codebusters, the team behind Purranormal:
 - Hannah Olbrich - Scrum Master, Agile
-- Dion 
-- Aleksandra
-- Magdalena
-- Taiwo
-- Fanxiang Meng
+- Dion - App functionality, Visual Design/Artist
+- Aleksandra - Frontend Developer
+- Magdalena - Authentication
+- Taiwo - Frontend Developer
+- Fanxiang Meng - Documentation
 
 ## Acknowledgements
 - A big thank you to the Code Institute team and hackathon organisers for their continuous support and guidance throughout this project.
