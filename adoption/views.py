@@ -33,6 +33,9 @@ def contact(request):
 
     return render(request, 'contact.html', {'form': form})
 
+def thank_you(request):
+    return render(request, 'thank_you.html')
+
 def tips(request):
     """Render the Tips & Spells page"""
     return render(request, 'tips.html')
