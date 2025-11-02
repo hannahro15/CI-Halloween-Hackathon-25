@@ -8,6 +8,7 @@ urlpatterns = [
     path('team-page/', views.team_page, name='team-page'),
     path('tips/', views.tips, name='tips'),
     path('contact/', views.contact, name='contact'),
+    path('profile/', views.profile_view, name='profile'),
     path('add_to_list/<int:cat_id>/', views.add_to_list, name='add-to-list'),
     path('404/', views.page_404, name='404-page'),
     path('500/', views.page_500, name='500-page'),
