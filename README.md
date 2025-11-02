@@ -10,7 +10,10 @@ Welcome to **Purranormal**!
 - [Wireframes](#wireframes)
 - [User Stories](#user-stories)
 - [Technologies Used](#technologies-used)
+- [Design choices](#design-choices)
+- [Colour palette](#colour-palette)
 - [Features](#features)
+- [Future features](#future-features)
 - [Credits](#credits)
 - [Deployment Instructions](#deployment-instructions)
 - [Meet the team](#meet-the-team)
@@ -74,15 +77,6 @@ Below is the visual palette used in the project:
 
 ## Features
 
-## Future features
-
-As a team, we plan to continue developing the app beyond its initial demo scope. Our goal is to enhance usability, engagement, and magical matchmaking through the following features:
-
-- **Search & filters** – Add a search bar and filters (age, speciality, distance, availability) to help users find suitable cats quickly.
-- **Saved favourites & history** – Allow users to bookmark cat profiles and revisit previous matches or interactions.
-- **Notifications & reminders** – Implement push/email notifications for new matches, updates, or seasonal rituals.
-
-
 ### Navigation Bar
 The navigation bar is present on all pages, providing easy access to the main sections of the site: Home, Meet the Coven, Find a Cat, Tips & Spells, and Contact. It also includes login and registration links for user accounts.
 
@@ -129,6 +123,14 @@ Provides a form for users to reach out with questions or feedback.
 Enables users to create an account or log in to manage their cat adoptions.
 
 ![Login/Reg screenshot]()
+
+## Future features
+
+As a team, we plan to continue developing the app beyond its initial demo scope. Our goal is to enhance usability, engagement, and magical matchmaking through the following features:
+
+- **Search & filters** – Add a search bar and filters (age, speciality, distance, availability) to help users find suitable cats quickly.
+- **Saved favourites & history** – Allow users to bookmark cat profiles and revisit previous matches or interactions.
+- **Notifications & reminders** – Implement push/email notifications for new matches, updates, or seasonal rituals.
 
 ## Credits
 - Background image created using [Canva](https://www.canva.com/) — used for visual consistency and thematic styling.
