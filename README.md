@@ -16,6 +16,7 @@ Welcome to **Purranormal**!
 - [Future features](#future-features)
 - [Credits](#credits)
 - [Deployment Instructions](#deployment-instructions)
+- [Project Management](#project-management)
 - [Meet the team](#meet-the-team)
 - [Acknowledgements](#acknowledgements)
 
@@ -189,6 +190,13 @@ Head back over to Heroku where the Deploy tab is.
 Heroku will receive code from Github and build app with the required packages. Hopefully once done the 'App has successfully been deployed message below' will appear. 
 3. Click 'View' to launch the new app. 
 The deployed link of the app is https://purranormal-26af1e8cdfe0.herokuapp.com/
+
+## Project Management
+
+Github projects Kanban board was used to manage the project tasks and to track the status of each task throughout the development process.
+
+![Kanban Board Screenshot](screenshots/kanban.png)
+
 
 ## Meet the team
 We are Codebusters, the team behind Purranormal:
