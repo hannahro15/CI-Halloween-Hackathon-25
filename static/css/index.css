@@ -25,10 +25,97 @@ body {
 .hero .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
     
 }
+
+    /* Testimonials style */
+    .testimonials-section {
+        padding: 4rem 0;
+        background: linear-gradient(rgba(19, 3, 29, 0.5), rgba(19, 3, 29, 1)), url("../images/background_2.jpg") center center / cover no-repeat;
+    }
+
+    .section-title {
+        color: #6b21a8;
+        font-family: 'Creepster', cursive;
+        font-size: 32px;
+        margin-bottom: 1.5rem;
+    }
+
+    /* More spacing between the intro paragraph and the cards grid */
+    .testimonials-section .lead.text-muted.mb-5,
+    .testimonials-section .lead.mb-5 {
+        margin-bottom: 5rem; 
+        color: rgba(248, 241, 255, 0.96); 
+    }
+
+    .testimonials-section .row {
+        padding-top: 6rem; 
+    }
+
+    .testimonial-card {
+        background: rgba(30, 30, 30, 0.85);
+        border: 1px solid rgba(255, 117, 24, 0.4);
+        border-radius: 10px;
+        padding: 0.9rem;
+        box-shadow: 0 0 20px rgba(255, 117, 24, 0.3);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+        color: #f8eedd;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 30px rgba(255, 140, 30, 0.6);
+    }
+
+    .testimonial-card .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: -70px auto 0;
+        border: 6px solid #ff7518;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+        background: rgba(255,255,255,0.02);
+    }
+
+    .testimonial-inner {
+        padding-top: 1rem;
+    }
+
+    .purple-heading {
+        color: #ffa94d; /* match member-card h3 */
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-top: 0.25rem;
+    }
+
+    .muted-small {
+        color: #ffd8a8;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .stars {
+        color: #ffcc00;
+        margin: 0.5rem 0 1rem;
+    }
+
+    .quote {
+        font-size: 0.95rem;
+        color: #f8eedd;
+        line-height: 1.45;
+    }
+
+    @media (min-width: 992px) {
+        .testimonial-card {
+            padding: 1.25rem;
+        }
+    }
+
+
 
 .spooky-text {
     font-family: 'Creepster', cursive;
