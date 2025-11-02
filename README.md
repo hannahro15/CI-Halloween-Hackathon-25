@@ -6,6 +6,16 @@ Welcome to **Purranormal**!
 
  A spooky-themed hackathon project where we aim to find the *purr*-fect feline familiar for witches and spellcasters alike. Explore our unique selection of mystical cats, each with their own traits and personalities. Whether you're a seasoned witch or a budding sorcerer, Purranormal is here to help you discover your next magical companion.
 
+## Table of Contents
+- [Wireframes](#wireframes)
+- [User Stories](#user-stories)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Credits](#credits)
+- [Deployment Instructions](#deployment-instructions)
+- [Meet the team](#meet-the-team)
+- [Acknowledgements](#acknowledgements)
+
 ## Wireframes
 Below is the main wireframe for Purranormal — This sketch gently maps out the layout we imagined for the main app page.
 
@@ -131,11 +141,11 @@ The deployed link of the app is https://purranormal-26af1e8cdfe0.herokuapp.com/
 ## Meet the team
 We are Codebusters, the team behind Purranormal:
 - Hannah Olbrich - Scrum Master, Agile
-- Dion 
-- Aleksandra
-- Magdalena
-- Taiwo
-- Fanxiang Meng
+- Dion - App functionality, Visual Design/Artist
+- Aleksandra - Frontend Developer
+- Magdalena - Authentication
+- Taiwo - Frontend Developer
+- Fanxiang Meng - Documentation
 
 ## Acknowledgements
 - A big thank you to the Code Institute team and hackathon organisers for their continuous support and guidance throughout this project.
