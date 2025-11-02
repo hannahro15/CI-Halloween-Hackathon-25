@@ -87,14 +87,14 @@ The navigation bar is present on all pages, providing easy access to the main se
 ### Home Page
 Introduces users to Purranormal. Highlights the themes and purpose of the platform. Includes Links to the app page and tips & spells page for quick navigation.
 
-![Homepage screenshot](screenshots\home-page.png)
+![Homepage screenshot](screenshots/home-page.png)
 
 ---
 
 ### Meet the Coven Page
 Displays the team behind the project, their roles, and their contributions. Also includes LinkedIn and GitHub links for each team member.
 
-![Meet the coven page screenshot](screenshots\coven-page.png)
+![Meet the coven page screenshot](screenshots/coven-page.png)
 
 ---
 
