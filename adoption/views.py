@@ -50,27 +50,42 @@ def profile_view(request):
 
     adopted_cats = candidate_list.cat.all()
 
-    # Get JSON for JS cards that display cats
-    adopted_cats_json = json.dumps([
-        {
+    # DEBUG: Print to Heroku logs
+    print(f"DEBUG: User: {request.user.username}")
+    print(f"DEBUG: Number of adopted cats: {adopted_cats.count()}")
+    print(f"DEBUG: Cats: {[cat.name for cat in adopted_cats]}")
+
+    # Get JSON for JS cards that display cats - SAFE VERSION
+    adopted_cats_list = []
+    for c in adopted_cats:
+        # Safely get image URL without Cloudinary errors
+        image_url = None
+        try:
+            if c.image:
+                image_url = c.image.url
+        except Exception as e:
+            print(f"DEBUG: Image error for cat {c.name}: {e}")
+            pass
+
+        adopted_cats_list.append({
             "id": c.id,
             "name": c.name,
             "age": c.age,
             "breed": c.breed,
             "speciality": c.speciality,
             "biography": c.biography,
-            "image_url": c.image.url if getattr(c, "image", None) else "/static/images/placeholder.png"
-        }
-        for c in adopted_cats
-    ])
+            "image_url": image_url
+        })
+
+    adopted_cats_json = json.dumps(adopted_cats_list)
+    print(f"DEBUG: JSON length: {len(adopted_cats_json)}")
 
     context = {
         'profile': profile,
-        'adopted_cats':adopted_cats,
+        'adopted_cats': adopted_cats,
         'adopted_cats_json': adopted_cats_json,
     }
     return render(request, 'user-profile.html', context)
-
 
 
 def add_to_list(request, cat_id):
