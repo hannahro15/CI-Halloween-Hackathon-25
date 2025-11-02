@@ -36,6 +36,20 @@ def profile_view(request):
 
     adopted_cats = profile.get_adopted_cats()
 
+    # Get JSON for JS cards that display cats
+    adopted_cats_json = json.dumps([
+        {
+            "id": c.id,
+            "name": c.name,
+            "age": c.age,
+            "breed": c.breed,
+            "speciality": c.speciality,
+            "biography": c.biography,
+            "image_url": c.image.url if getattr(c, "image", None) else None,
+        }
+        for c in adopted_cats
+    ])
+
     context = {
         'profile': profile,
         'adopted_cats':adopted_cats,
