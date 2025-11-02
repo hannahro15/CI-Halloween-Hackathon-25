@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Thank You, Witchy One — Purranormal{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/thankyou.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="thankyou-hero" style="background-image: url('{% static 'images/moonlit-cat.jpg' %}');">
+  <div class="thankyou-overlay d-flex flex-column align-items-center justify-content-center text-center">
+    <h1 class="spooky-text display-4 mb-3">✨ Message Received ✨</h1>
+    <p class="lead mb-4">
+      The coven has heard your words through the veil.  
+      Our familiars are already whispering your message to the spirits 🕯️
+    </p>
+
+    <p class="mb-5">We'll be in touch soon — until then, may your candles burn bright and your cats stay mysterious. 🐈‍⬛</p>
+
+    <a href="{% url 'index' %}" class="btn btn-warning btn-lg">
+      Return to the Haunted Haven 👻
+    </a>
+  </div>
+</main>
+{% endblock %}
