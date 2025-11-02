@@ -33,10 +33,48 @@ Figure: Wireframe showing layout, primary navigation and the placement of the ma
 - Django:
 - Django Admin:
 
+## Design choices
+
+This project includes several intentional design choices made to balance speed of development, accessibility, and a strong thematic visual identity:
+
+- Tech stack: built with Django to prioritise rapid development and easy deployment for a hackathon/demo environment. Django's admin speeds up content management.
+- User experience: a mobile-first, responsive layout with card-based cat profiles and clear calls-to-action to simplify adoption flows and make interaction intuitive on touch devices.
+- Visual design: a dark, purple-themed aesthetic chosen to reinforce the spooky/halloween brand while using high-contrast text and clear visual hierarchy for readability.
+- Accessibility: semantic HTML, descriptive alt text for images, and attention to contrast and touch target size to help users with different needs.
+- Static assets: images, CSS, and audio are served from the `static/` folder to keep the deployment straightforward; media usage was kept limited for faster builds.
+- Testing & maintainability: the focus was on core user journeys for the hackathon. 
+
+## Colour palette
+The colour palette used in this project (hex values) with brief notes on usage:
+
+- Dark backgrounds: `#000`, `#0b0b0d`, `#1b1b1f`, `#1a001a` — main page backgrounds and hero gradients.
+- Purple gradient: `#2c003e` → `#5a0d8a` — hero / header backgrounds.
+- Purple accents: `#6b21a8`, `#ac85b2`, `#cab2d6` — accents, links and decorative elements.
+- Orange (CTA): `#ff7518`, `#ffa94d`, `#ff7f00` — call-to-action buttons, borders, highlights.
+- Yellow / gold: `#ffcc00`, `#ffa500`, `#fdbe70` — shadows and highlights.
+- Pink / pastel: `#ffb3ff`, `#fc9a99`, `#f5e1ff` — decorative accents.
+- Text / light elements: `#f8f9fa`, `#f8eedd`, `#fff1ea` — primary text and light UI elements.
+- Neutrals / card backgrounds: `#f0f0f0` — card and panel backgrounds.
+- Other accents: `#a7ac21` — small green accents used in some components.
+
+Below is the visual palette used in the project:
+
+![Project colour palette](screenshots/palette.png)
+
+
 ## Features
 
-## Credits 
+## Future features
 
+As a team, we plan to continue developing the app beyond its initial demo scope. Our goal is to enhance usability, engagement, and magical matchmaking through the following features:
+
+- **Search & filters** – Add a search bar and filters (age, speciality, distance, availability) to help users find suitable cats quickly.
+- **Saved favourites & history** – Allow users to bookmark cat profiles and revisit previous matches or interactions.
+- **Notifications & reminders** – Implement push/email notifications for new matches, updates, or seasonal rituals.
+
+
+## Credits
+- Background image created using [Canva](https://www.canva.com/) — used for visual consistency and thematic styling.
 ### Content
 - Generative AI tools were used in various parts of this project.
 
