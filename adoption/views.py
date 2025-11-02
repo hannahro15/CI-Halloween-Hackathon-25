@@ -46,6 +46,7 @@ def tips(request):
 def profile_view(request):
     """ Distpaly user profile with adopted cats"""
     profile, created = UserProfile.objects.get_or_create(user=request.user)
+    candidate_list, _ = CandidateList.objects.get_or_create(user=request.user)
 
     adopted_cats = candidate_list.cat.all()
 
