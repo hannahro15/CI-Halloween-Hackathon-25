@@ -1,7 +1,9 @@
 const container = document.getElementById("cardContainer");
 let isDragging = false;
 let startX = 0;
+let startY = 0;                // <--- new
 let currentCard = null;
+let isTouchScrolling = null;   // <--- new
 const cardColors = [
   "#ac85b2",
   "#ff6f40",
@@ -13,16 +15,54 @@ const cardColors = [
 ];
 // remove the hardcoded color/card loop and instead fetch cats from the server
 document.addEventListener('DOMContentLoaded', () => {
-
   // fetch cats from the new API and append to container (top-to-bottom order)
   fetch('/api/cats/')
     .then((r) => r.json())
     .then((payload) => {
       const cats = payload.cats || [];
-      // append in order so the last card becomes the top one (your getTopCard uses :last-child)
       cats.forEach((cat) => {
         const card = buildCard(cat);
+
+        // append card to DOM BEFORE measuring
         container.appendChild(card);
+
+        // measure after layout so sizes are correct
+        requestAnimationFrame(() => {
+          const contentEl = card.querySelector('.card-content');
+          const titleEl = card.querySelector('.card-title');
+          const textContentEl = card.querySelector('.card-breed');
+          
+
+          if (contentEl && titleEl) {
+            const textContentRect = textContentEl.getBoundingClientRect();
+            const titleRect = titleEl.getBoundingClientRect();
+
+            // distance from top of title down to bottom of visible content area (px)
+            let fadeSize = Math.max(0, textContentRect.bottom - titleRect.top);
+            
+
+            // small offset so the gradient doesn't cover the title itself (tweak if needed)
+            fadeSize = Math.max(0, fadeSize - 4);
+
+            // set CSS var used by your .content-end-fade (set on card and on content)
+            card.style.setProperty('--fade-size', `${fadeSize}px`);
+            contentEl.style.setProperty('--fade-size', `${fadeSize}px`);
+            // ensure padding var matches CSS pad if you rely on it:
+            contentEl.style.setProperty('--pad', '0px');
+
+            console.log(`textContentRect Bottom is ${textContentRect.bottom} 
+              Title top is ${titleRect.top}
+              Fade Size is: ${fadeSize}
+              `);
+          }
+
+          // optional: set --fade-top for absolute overlay if you use it
+          if (titleEl) {
+            const cardRect = card.getBoundingClientRect();
+            const offsetFromCardTop = titleEl.getBoundingClientRect().top - cardRect.top;
+            card.style.setProperty('--fade-top', `${offsetFromCardTop + 4}px`);
+          }
+        });
       });
     })
     .catch((err) => {
@@ -55,22 +95,40 @@ function buildCard(cat) {
   }
 
   const h3 = document.createElement('h3');
-  h3.className = 'card-title m-0 p-0';
-  h3.textContent = cat.name;
+  h3.className = 'card-title card-text-content px-3';
+  h3.textContent = `${cat.name}, ${cat.age}`;
   content.appendChild(h3);
 
-  const pSpecial = document.createElement('p');
-  pSpecial.className = 'card-speciality m-0 p-0';
-  pSpecial.textContent = cat.speciality || '';
-  content.appendChild(pSpecial);
+  const pDistance = document.createElement('p');
+  pDistance.className = 'card-distance card-text-content px-3';
+  pDistance.textContent = `${cat.distance || ''} miles away`;
+  content.appendChild(pDistance);
 
   const pBio = document.createElement('p');
-  pBio.className = 'card-bio m-0 p-0';
+  pBio.className = 'card-bio card-text-content px-3';
   pBio.textContent = cat.biography || '';
   content.appendChild(pBio);
 
+  const pSpecial = document.createElement('p');
+  pSpecial.className = 'card-speciality card-text-content px-3 mb-1';
+  pSpecial.textContent = `Speciality: ${cat.speciality || ''}`;
+  content.appendChild(pSpecial);
+
+  const pBreed = document.createElement('p');
+  pBreed.className = 'card-breed card-text-content px-3';
+  pBreed.textContent = `Breed: ${cat.breed || ''}`;
+  content.appendChild(pBreed);
+
+  // add an in-flow fade element that sits at the end of the content and overlaps
+  const endFade = document.createElement('div');
+  endFade.className = 'content-end-fade';
+  // optionally tune per-card: endFade.style.setProperty('--fade-size', '120px');
+  content.appendChild(endFade);
+
   card.setAttribute("data-cat-id", cat.id);
   card.appendChild(content);
+
+  // DO NOT measure here — return and let caller append + measure
   return card;
 }
 
@@ -88,7 +146,6 @@ function getTopCard() {
 /* Pointer handlers (mouse + touch) */
 container.addEventListener("mousedown", (e) => {
   currentCard = getTopCard();
-  console.log("Mouse down!");
   if (!currentCard) return;
   isDragging = true;
   startX = e.clientX;
@@ -112,23 +169,55 @@ container?.addEventListener("touchstart", (e) => {
   currentCard = getTopCard();
   if (!currentCard) return;
   isDragging = true;
+  isTouchScrolling = null;            // reset per-touch
   startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
   currentCard.style.transition = "none";
 });
 
+// Note: remove passive: true so we can call preventDefault() when needed.
 window.addEventListener(
   "touchmove",
   (e) => {
     if (!isDragging || !currentCard) return;
-    const deltaX = e.touches[0].clientX - startX;
-    currentCard.style.transform = `translateX(${deltaX}px) rotate(${deltaX / 10}deg)`;
+
+    const touch = e.touches[0];
+    const dx = touch.clientX - startX;
+    const dy = touch.clientY - startY;
+
+    // Determine intent on first move: vertical scroll vs horizontal swipe
+    if (isTouchScrolling === null) {
+      const contentEl = currentCard.querySelector(".card-content");
+      const canScrollVertically =
+        contentEl && contentEl.scrollHeight > contentEl.clientHeight;
+      // prefer vertical if vertical movement larger and inner content can scroll
+      isTouchScrolling = Math.abs(dy) > Math.abs(dx) && canScrollVertically;
+    }
+
+    if (isTouchScrolling) {
+      // Allow browser to scroll inner .card-content naturally.
+      // But ensure the scroll is applied to inner content rather than the page:
+      // If the touch originated over the inner content, do nothing here.
+      return;
+    } else {
+      // Horizontal swipe: prevent page vertical scroll while swiping
+      e.preventDefault();
+      currentCard.style.transform = `translateX(${dx}px) rotate(${dx / 10}deg)`;
+    }
   },
-  { passive: true }
+  { passive: false }
 );
 
 window.addEventListener("touchend", (e) => {
   if (!isDragging || !currentCard) return;
-  const deltaX = e.changedTouches[0].clientX - startX;
+  // If it was a vertical scroll gesture, just clear state and don't treat as a swipe.
+  if (isTouchScrolling) {
+    isDragging = false;
+    currentCard = null;
+    isTouchScrolling = null;
+    return;
+  }
+  const deltaX = (e.changedTouches[0].clientX || 0) - startX;
   handleSwipe(deltaX);
 });
 
@@ -187,7 +276,7 @@ function handleSwipe(deltaX) {
     setTimeout(() => {
       currentCard.remove();
       currentCard = null;
-    }, 400);
+    }, 100);
   } else {
     currentCard.style.transition = "transform 0.3s ease";
     currentCard.style.transform = "translateX(0) rotate(0)";

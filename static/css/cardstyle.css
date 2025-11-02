@@ -1,72 +1,168 @@
-/*
-body {
-   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #f0f0f0;
-  overflow: hidden;
-}
-  
-*/
-
-body{
-  --card-width-max: 300px;
-  --card-height-max: 400px;
-  --card-font-size-max: 48px;
+/* Layout / variables */
+@media (orientation: landscape)
+{
+  body {
+  --card-width-max: calc(var(--card-height-max)*0.66);
+  --card-height-max: 85vh;
+  --card-font-size-max: 1%;
+  --card-image-margin: calc(var(--card-height-max) / 9);
+  }
 }
 
+@media (orientation: portrait) and (max-width: 450px)
+{
+  body {
+  --card-width-max: calc(var(--card-height-max)*0.66);
+  --card-height-max: 100vw;
+  --card-font-size-max: 1%;
+  --card-image-margin: calc(var(--card-height-max) / 1000);
+  }
+}
+@media (orientation: portrait) and (min-width: 451px)
+{
+  body {
+  --card-width-max: calc(var(--card-height-max)*0.66);
+  --card-height-max: 100vw;
+  --card-font-size-max: 1%;
+  --card-image-margin: calc(var(--card-height-max) /10);
+  }
+}
+
+/* Card container */
 .card-container {
-  width: 300px;
-  height: 400px;
+  width: var(--card-width-max);
+  height: var(--card-height-max);
   margin-left: auto;
   margin-right: auto;
   position: relative;
 }
-.card-content{
-  width: 100%;
-  height: 100%;
+
+/* Scrollable content */
+.card-content {
+  --pad: 10px;
+  --fade-size: 10px; /* fallback; JS may override */
+  width: var(--card-width-max);
+  height: var(--card-height-max);
+  padding: var(--pad);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* smooth momentum scrolling on iOS */
+  box-sizing: border-box;
+  position: relative;
+  z-index: 0;
 }
+
+/* hide native scrollbars but keep scrolling */
+.card-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+.card-content {
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE 10+ */
+}
+
+/* Card media and layout */
 .card-image {
-  width: 200px;
-  height: 200px;
+  
+  display: block;
+  justify-content: center;
+  width: var(--card-width-max); 
+  object-fit: cover;
+  user-drag: none;
+  -webkit-user-drag: none;
+  margin-top: var(--card-image-margin);
 }
+
+/* Card wrapper */
 .swipe-card {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: var(--card-width-max);
+  height: var(--card-height-max);
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  z-index: 3;
   user-select: none;
   transition: transform 0.3s, opacity 0.3s ease;
-}
-.swipe-card:not(:last-child) {
-  top: 5px;
+  touch-action: pan-y;
+  overflow: hidden; /* ensure rounded corners clip children (including the fade) */
 }
 
-.swipe-card > p{
-  font-size: 10px;
+/* Text styles */
+.card-content > p{
+  z-index: 3;
+  position: relative;
 }
-.swipe-card > h3{
+.card-speciality, .card-breed { 
+  font-size: 14px; 
+}
+.card-bio { 
+  font-size: 20px; 
+}
+.card-title {
+  font-family: 'Creepster', cursive !important;
   font-size: 48px;
+  z-index: 3;
+  position: relative;
 }
 
-/*
-@media (width >= 576px) {
-  .card-container {
-    width: var(--card-width-max);
-    height: var(--card-height-max);
-    font-size: var(--font-size-max);
-  }
+/* Disable old pseudo overlay inside scroll box (we use in-flow element instead) */
+.card-content::after { display: none; }
+
+/* Absolute overlay fallback (kept for compatibility) */
+.card-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: var(--fade-top, calc(100% - 60%));
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.5) 30%,
+    rgba(0, 0, 0, 0.35) 45%,
+    rgba(0, 0, 0, 0.0) 100%
+  );
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
 
-@media (576px >= width) {
-  .card-container {
-    width: calc(var(--card-width-max) / 2);
-    height: calc(var(--card-height-max) / 2);
-    font-size: calc(var(--font-size-max) / 2);
-  }
+/* In-flow fade element that scrolls with content */
+.content-end-fade {
+  /* do not redeclare --fade-size here; it is inherited from .card-content or set by JS */
+  height: var(--fade-size);
+  margin-top: calc(var(--fade-size) * -1); /* pull it upward to overlap preceding text */
+  margin-bottom: 0;
+  pointer-events: none;
+  position: relative; /* stacking context for ::before */
+  z-index: 0;
+  box-sizing: border-box;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+/* Visual gradient expanded to cover content padding and card edges */
+.content-end-fade::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: calc(-1 * var(--pad));
+  right: calc(-1 * var(--pad));
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 66%,
+    rgba(0, 0, 0, 0.0) 100%
+  );
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  box-sizing: border-box;
 }
