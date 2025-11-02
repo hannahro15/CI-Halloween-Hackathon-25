@@ -30,32 +30,68 @@
     const container = document.getElementById("profileCats");
 
 
-    if (cats.length === 0) {
-        // Message if no cats
-        const message = document.createElement("p");
-        message.className = "lead text-muted mt-4";
-        message.textContent = "No adopted cats yet!";
-        container.parentElement.appendChild(message);
-    } else {
-    // Cat cards
+    // Same card colors as cardscript.js
+    const cardColors = [
+        "#ac85b2",
+        "#ff6f40",
+        "#a7ac21",
+        "#fc9a99",
+        "#fdbe70",
+        "#ff7f00",
+        "#cab2d6",
+    ];
 
-    cats.forEach(cat =>{
-        const div = document.createElement("div");
-        div.className = "profile-card";
+    // Reused same buildCard function from cardscript.js
+    function buildCard(cat) {
+        const card = document.createElement('div');
+        card.className = 'swipe-card';
 
-        const imageUrl = cat.image_url || "{% static 'images/placeholder.png' %}";
+        const cardColourNum = cat.id % cardColors.length;
+        card.style.backgroundColor = cardColors[cardColourNum];
 
-        div.innerHTML = `
-            <img src="${imageUrl}" alt="${cat.name}">
-            <h3>${cat.name}</h3>
-            <p><strong>${cat.breed}</strong></p>
-            <p>${cat.biography.substring(0, 60)}...</p>
-        `;
+        const content = document.createElement('div');
+        content.className = 'card-content';
 
-    container.appendChild(div);
-});
-}
+        // Image
+        const img = document.createElement('img');
+        if (cat.image_url) {
+            img.src = cat.image_url;
+        } else {
+            img.src = "{% static 'images/placeholder.png' %}";
+        }
+        img.alt = cat.name;
+        img.className = 'card-image';
+        content.appendChild(img);
 
+        // Cat Title
+        const h3 = document.createElement('h3');
+        h3.className = 'card-title m-0 p-0';
+        h3.textContent = cat.name;
+        content.appendChild(h3);
 
+        // Cat Speciality
+        const pSpecial = document.createElement('p');
+        pSpecial.className = 'card-speciality m-0 p-0';
+        pSpecial.textContent = cat.speciality || '';
+        content.appendChild(pSpecial);
+
+        // Cat Biography
+        const pBio = document.createElement('p');
+        pBio.className = 'card-bio m-0 p-0';
+        pBio.textContent = cat.biography || '';
+        content.appendChild(pBio);
+
+        card.setAttribute("data-cat-id", cat.id);
+        card.appendChild(content);
+        return card;
+    }
+
+    // Build and display all cards
+    if (cats.length > 0) {
+        cats.forEach(cat => {
+            const card = buildCard(cat);
+            container.appendChild(card);
+        });
+    }
 </script>
 {% endblock %}
