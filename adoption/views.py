@@ -47,7 +47,7 @@ def profile_view(request):
     """ Distpaly user profile with adopted cats"""
     profile, created = UserProfile.objects.get_or_create(user=request.user)
 
-    adopted_cats = profile.get_adopted_cats()
+    adopted_cats = candidate_list.cat.all()
 
     # Get JSON for JS cards that display cats
     adopted_cats_json = json.dumps([
