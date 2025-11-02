@@ -143,11 +143,13 @@ As a team, we plan to continue developing the app beyond its initial demo scope.
 - **Notifications & reminders** – Implement push/email notifications for new matches, updates, or seasonal rituals.
 
 ## Credits
-- Background image created using [Canva](https://www.canva.com/) — used for visual consistency and thematic styling.
+
 ### Content
-- Generative AI tools were used in various parts of this project.
+- Generative AI tools such as ChatGPT and Copilot were used for ideation and code optimisation.
 
 ### Media
+- Background image created using [Canva](https://www.canva.com/) — used for visual consistency and thematic styling.
+- Background audio and images sourced from [Pixabay](https://pixabay.com) — free music for enhancing user experience.
 
 ## Deployment Instructions
 
