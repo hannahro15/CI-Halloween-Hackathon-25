@@ -33,6 +33,24 @@ Figure: Wireframe showing layout, primary navigation and the placement of the ma
 - Django:
 - Django Admin:
 
+## Colour palette
+The colour palette used in this project (hex values) with brief notes on usage:
+
+- Dark backgrounds: `#000`, `#0b0b0d`, `#1b1b1f`, `#1a001a` — main page backgrounds and hero gradients.
+- Purple gradient: `#2c003e` → `#5a0d8a` — hero / header backgrounds.
+- Purple accents: `#6b21a8`, `#ac85b2`, `#cab2d6` — accents, links and decorative elements.
+- Orange (CTA): `#ff7518`, `#ffa94d`, `#ff7f00` — call-to-action buttons, borders, highlights.
+- Yellow / gold: `#ffcc00`, `#ffa500`, `#fdbe70` — shadows and highlights.
+- Pink / pastel: `#ffb3ff`, `#fc9a99`, `#f5e1ff` — decorative accents.
+- Text / light elements: `#f8f9fa`, `#f8eedd`, `#fff1ea` — primary text and light UI elements.
+- Neutrals / card backgrounds: `#f0f0f0` — card and panel backgrounds.
+- Other accents: `#a7ac21` — small green accents used in some components.
+
+Below is the visual palette used in the project:
+
+![Project colour palette](screenshots/palette.png)
+
+
 ## Features
 
 ## Credits 
