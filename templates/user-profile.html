@@ -13,11 +13,25 @@
 <main class="container-fluid p-0 halloween-home">
     <section class="container text-center py-5 text-light">
         <h1 class="display-3 spooky-text mb-3">{{ profile.user.username }}'s  Spooky Sanctuary</h1>
-
+        <h2 class="mb-3 fst-italic">Adopted Familiars</h2>
         <div class="profile-card-grid" id="profileCats"></div>
 
+        <div style="display: block; background: rgba(255,255,255,0.1); padding: 10px; margin: 10px;">
+          
+            {% for cat in adopted_cats %}
+                <div style="border: 1px solid white; margin: 5px; padding: 5px;">
+                    <p>{{ cat.name }}</p>
+                    <p>{{cat.image_url }}</p>
+                    <p>Age: {{ cat.age }}</p>
+                    <p>Breed: {{ cat.breed }}</p>
+                </div>
+            {% empty %}
+                <h3>No cats found.</h3>
+            {% endfor %}
+        </div>
+
         {% if adopted_cats|length == 0 %}
-            <p class="text-center text-muted mt-4">No adopted cats yet </p>
+            <h3 class="text-center text-muted mt-4">No adopted cats yet. </h3>
         {% endif %}
     </section>
 </main>
@@ -31,11 +45,19 @@
         let cats = [];
         const catsJson = '{{ adopted_cats_json|safe }}';
         
+        console.log('=== PROFILE DEBUG ===');
+        console.log('Raw JSON from Django:', catsJson);
+        console.log('JSON length:', catsJson.length);
+        
         if (catsJson && catsJson !== '' && catsJson !== 'null') {
             cats = JSON.parse(catsJson);
+            console.log('Successfully parsed cats:', cats);
+        } else {
+            console.log('No cats data or empty JSON');
         }
         
         const container = document.getElementById("profileCats");
+        console.log('Container found:', !!container);
 
         if (!container) {
             console.error('Profile cats container not found');
