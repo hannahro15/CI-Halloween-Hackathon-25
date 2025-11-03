@@ -18,7 +18,7 @@ class Cat(models.Model):
     age = models.IntegerField(default=1)
     breed = models.CharField(max_length=100, default="CatBreed")
     speciality = models.CharField(max_length=100, default="CatSpecial")
-    biography = models.TextField(max_length=400, default="CatBio")
+    biography = models.TextField(max_length=1000, default="CatBio")
     image = CloudinaryField('image', default='placeholder')
     distance = models.IntegerField(default=0)
 
