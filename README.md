@@ -153,6 +153,10 @@ Displays user information and their adopted cats.
 
 ![User profile page screenshot](screenshots/empty-user-profile.png)
 
+## Footer
+The footer is consistent across all pages, providing links to the project GitHub repository.
+![Footer screenshot](screenshots/footer.png)
+
 ## Future features
 
 As a team, we plan to continue developing the app beyond its initial demo scope. Our goal is to enhance usability, engagement, and magical matchmaking through the following features:
