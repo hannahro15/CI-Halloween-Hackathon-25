@@ -1,0 +1,11 @@
+.cat-profile{
+    border: 1px solid white; 
+    margin: 5px; 
+    padding: 5px;
+}
+.cat-profile-group{
+    display: block; 
+    background: rgba(255,255,255,0.1); 
+    padding: 10px; 
+    margin: 10px;
+}
