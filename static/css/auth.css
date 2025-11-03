@@ -41,6 +41,18 @@ label {
   margin-top: 0.5rem;
 }
 
+.forgot-password-link {
+    color: #ffe07a;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.forgot-password-link:hover {
+    color: #ffb84d;
+    transform: scale(1.05);
+}
+
 .form-control {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
