@@ -44,7 +44,7 @@ def tips(request):
 
 @login_required
 def profile_view(request):
-    """ Distpaly user profile with adopted cats"""
+    """ Display user profile with adopted cats"""
     profile, created = UserProfile.objects.get_or_create(user=request.user)
     candidate_list, _ = CandidateList.objects.get_or_create(user=request.user)
 
