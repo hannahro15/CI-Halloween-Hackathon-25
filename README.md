@@ -209,12 +209,12 @@ Github projects Kanban board was used to manage the project tasks and to track t
 
 ## Meet the team
 We are Codebusters, the team behind Purranormal:
-- Hannah Olbrich - Scrum Master, Agile
-- Dion McMillan - App functionality, Visual Design/Artist
-- Aleksandra Proc - Frontend Developer
-- Magdalena Kuczynska- Authentication
-- Taiwo Ogbonyomi- Frontend Developer
-- Fanxiang Meng - Documentation
+- [Hannah Olbrich](https://www.linkedin.com/in/hannaholbrich/) - Scrum Master, Agile
+- [Dion McMillan](https://www.linkedin.com/in/dion-mcmillan-615141115/) - App functionality, Visual Design/Artist
+- [Aleksandra Proc](https://www.linkedin.com/in/aleksandra-proc/) - Frontend Developer
+- [Magdalena Kuczynska](https://www.linkedin.com/in/magda-kuczynska-developer/)- Authentication
+- [Taiwo Ogbonyomi](https://www.linkedin.com/in/taiwo-ogbonyomi-a6829413b/)- Frontend Developer
+- [Fanxiang Meng](https://www.linkedin.com/in/fanxiang-meng-703327219/) - Documentation
 
 ## Acknowledgements
 - A big thank you to the Code Institute team and hackathon organisers for their continuous support and guidance throughout this project.
