@@ -151,7 +151,7 @@ Custom 404 and 500 error pages to enhance user experience in case of navigation 
 ### User Profile Page
 Displays user information and their adopted cats.
 
-![User profile page screenshot](screenshots/empty-user-profile.png)
+![User profile page screenshot](screenshots/user-profile.png)
 
 ## Footer
 The footer is consistent across all pages, providing links to the project GitHub repository.
