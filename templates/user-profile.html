@@ -16,19 +16,7 @@
         <h2 class="mb-3 fst-italic">Adopted Familiars</h2>
         <div class="profile-card-grid" id="profileCats"></div>
 
-        <div style="display: block; background: rgba(255,255,255,0.1); padding: 10px; margin: 10px;">
-          
-            {% for cat in adopted_cats %}
-                <div style="border: 1px solid white; margin: 5px; padding: 5px;">
-                    <p>{{ cat.name }}</p>
-                    <p>{{cat.image_url }}</p>
-                    <p>Age: {{ cat.age }}</p>
-                    <p>Breed: {{ cat.breed }}</p>
-                </div>
-            {% empty %}
-                <h3>No cats found.</h3>
-            {% endfor %}
-        </div>
+        <div class="cat-profile-group" id="cat-group"></div>
 
         {% if adopted_cats|length == 0 %}
             <h3 class="text-center text-muted mt-4">No adopted cats yet. </h3>
@@ -43,26 +31,24 @@
     try {
         // Safe JSON parsing with fallback
         let cats = [];
-        const catsJson = '{{ adopted_cats_json|safe }}';
-        
+        const catsJson = JSON.parse('{{ adopted_cats_json|escapejs }}');
+
         console.log('=== PROFILE DEBUG ===');
-        console.log('Raw JSON from Django:', catsJson);
-        console.log('JSON length:', catsJson.length);
-        
-        if (catsJson && catsJson !== '' && catsJson !== 'null') {
-            cats = JSON.parse(catsJson);
-            console.log('Successfully parsed cats:', cats);
+        console.log('Parsed JSON from Django:', catsJson);
+
+        if (catsJson && catsJson.length > 0) {
+            cats = catsJson;
         } else {
             console.log('No cats data or empty JSON');
         }
-        
+
         const container = document.getElementById("profileCats");
         console.log('Container found:', !!container);
 
         if (!container) {
-            console.error('Profile cats container not found');
-            return;
+            throw new Error('Profile cats container not found');
         }
+
 
 
     // Same card colors as cardscript.js
@@ -75,6 +61,49 @@
         "#ff7f00",
         "#cab2d6",
     ];
+
+    function buildCatProfile(cat) {
+        const catProfiles = document.getElementById("cat-group");
+        const section = document.createElement('div');
+        section.className = `cat-profile`;
+        section.id = `${cat.name}-profile`;
+
+        // Image
+        const img = document.createElement('img');
+        if (cat.image_url) {
+            img.src = cat.image_url;
+        } else {
+            img.src = "{% static 'images/placeholder.png' %}";
+        }
+        img.alt = cat.name;
+        img.className = 'cat-profile-image';
+        section.appendChild(img);
+
+        // Cat Title
+        const h3 = document.createElement('h3');
+        h3.textContent = cat.name;
+        section.appendChild(h3);
+
+        // Cat Speciality
+        const pSpecial = document.createElement('p');
+        pSpecial.textContent = `Speciality: ${cat.speciality || ''}`;
+        section.appendChild(pSpecial);
+
+        // Cat breed
+        const pBreed = document.createElement('p');
+        pBreed.textContent = `Breed: ${cat.breed || ''}`;
+        section.appendChild(pBreed);
+
+        // Cat Biography
+        const pBio = document.createElement('p');
+        pBio.textContent = `${cat.biography || ''}`;
+        section.appendChild(pBio);
+
+        catProfiles.setAttribute("data-cat-id", cat.id);
+        catProfiles.appendChild(section);
+        return catProfiles;
+
+    }
 
     // Reused same buildCard function from cardscript.js
     function buildCard(cat) {
@@ -127,11 +156,11 @@
     
     if (cats && cats.length > 0) {
         cats.forEach(cat => {
-            console.log('DEBUG: Building card for cat:', cat.name);
-            const card = buildCard(cat);
-            container.appendChild(card);
+            console.log('DEBUG: Building profile for cat:', cat.name);
+            const catProfile = buildCatProfile(cat);
+            container.appendChild(catProfile);
         });
-        console.log('DEBUG: All cards added to container');
+        console.log('DEBUG: All profiles added to container');
     } else {
         console.log('DEBUG: No cats to display');
     }
