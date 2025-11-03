@@ -14,7 +14,9 @@
     <p class="text-light mb-4">
       You have safely exited the Coven. Come back anytime to summon your familiar!
     </p>
-    <a href="{% url 'account_login' %}" class="btn btn-warning mt-3">Re-Enter the Portal 🔮</a>
+    <a href="{% url 'account_logout' %}?next=/accounts/login/" class="btn btn-warning mt-3">
+      Re-Enter the Portal 🔮
+    </a>
   </div>
 </div>
 {% endblock %}
