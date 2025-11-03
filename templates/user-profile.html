@@ -16,7 +16,7 @@
 
         <div class="profile-card-grid" id="profileCats"></div>
 
-        {% if not adopted_cats %}
+        {% if adopted_cats.count == 0 %}
             <p class="text-center text-muted mt-4">No adopted cats yet </p>
         {% endif %}
     </section>
@@ -87,11 +87,18 @@
     }
 
     // Build and display all cards
+    console.log('DEBUG: Cats data received:', cats);
+    console.log('DEBUG: Number of cats:', cats.length);
+    
     if (cats.length > 0) {
         cats.forEach(cat => {
+            console.log('DEBUG: Building card for cat:', cat.name);
             const card = buildCard(cat);
             container.appendChild(card);
         });
+        console.log('DEBUG: All cards added to container');
+    } else {
+        console.log('DEBUG: No cats to display');
     }
 </script>
 {% endblock %}
