@@ -1,0 +1,76 @@
+/* Profile main  container */
+.profile-matches-container {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+
+/*Grid layout for cards*/
+.profile-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+
+/* Override card positioning for grid display */
+.profile-card-grid .swipe-card {
+    position: relative !important;
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    transform: none !important;
+    transition: transform 0.3s ease;
+}
+
+.profile-card-grid .swipe-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Adjust card content for profile display*/
+.profile-card-grid .card-content {
+    width: 100%;
+    height: 100%;
+    overflow-y: visible;
+    padding: 15px;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: white;
+}
+
+.empty-state-icon {
+    font-size: 10rem !important;
+    margin-bottom: 20px;
+    line-height: 1 !important;
+    display: block !important;
+}
+
+.empty-state-title {
+    font-family: 'Creepster', 'Eater', cursive !important;
+    font-size: 2rem !important;
+    margin-bottom: 15px;
+    color: white !important;
+}
+
+.empty-state p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Responsivness*/
+@media (max-width: 768px) {
+    .profile-card-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .profile-matches-container {
+        padding: 10px;
+    }
+}

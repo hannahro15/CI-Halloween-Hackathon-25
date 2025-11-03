@@ -3,7 +3,7 @@
 
 {% block title %}{{ user.username }}'s Profile{% endblock %}
 
-{% block extra_header %}
+{% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 <link rel="stylesheet" href="{% static 'css/cardstyle.css' %}">
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
@@ -14,11 +14,17 @@
     <section class="container text-center py-5 text-light">
         <h1 class="display-3 spooky-text mb-3">{{ profile.user.username }}'s  Spooky Sanctuary</h1>
 
-        <div class="profile-card-grid" id="profileCats"></div>
+                <div class="profile-matches-container">
+            <div class="profile-card-grid" id="profileCats"></div>
 
-        {% if not adopted_cats %}
-            <p class="text-center text-muted mt-4">No adopted cats yet </p>
-        {% endif %}
+            {% if not adopted_cats %}
+                <div class="empty-state">
+                    <div class="empty-state-icon">😿</div>
+                    <h3 class="empty-state-title">No Adopted Cats Yet!</h3>
+
+                </div>
+            {% endif %}
+        </div>
     </section>
 </main>
 {% endblock %}
