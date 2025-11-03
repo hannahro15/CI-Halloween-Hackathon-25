@@ -13,11 +13,13 @@
 <main class="container-fluid p-0 halloween-home">
     <section class="container text-center py-5 text-light">
         <h1 class="display-3 spooky-text mb-3">{{ profile.user.username }}'s  Spooky Sanctuary</h1>
-
+        <h2 class="mb-3 fst-italic">Adopted Familiars</h2>
         <div class="profile-card-grid" id="profileCats"></div>
 
-        {% if not adopted_cats %}
-            <p class="text-center text-muted mt-4">No adopted cats yet </p>
+        <div class="cat-profile-group" id="cat-group"></div>
+
+        {% if adopted_cats|length == 0 %}
+            <h3 class="text-center text-muted mt-4">No adopted cats yet. </h3>
         {% endif %}
     </section>
 </main>
@@ -26,8 +28,27 @@
 
 {% block extra_scripts %}
 <script>
-    const cats = JSON.parse('{{ adopted_cats_json|safe }}');
-    const container = document.getElementById("profileCats");
+    try {
+        // Safe JSON parsing with fallback
+        let cats = [];
+        const catsJson = JSON.parse('{{ adopted_cats_json|escapejs }}');
+
+        console.log('=== PROFILE DEBUG ===');
+        console.log('Parsed JSON from Django:', catsJson);
+
+        if (catsJson && catsJson.length > 0) {
+            cats = catsJson;
+        } else {
+            console.log('No cats data or empty JSON');
+        }
+
+        const container = document.getElementById("profileCats");
+        console.log('Container found:', !!container);
+
+        if (!container) {
+            throw new Error('Profile cats container not found');
+        }
+
 
 
     // Same card colors as cardscript.js
@@ -40,6 +61,52 @@
         "#ff7f00",
         "#cab2d6",
     ];
+
+    function buildCatProfile(cat) {
+        const catProfiles = document.getElementById("cat-group");
+        const section = document.createElement('div');
+        section.className = `cat-profile`;
+        section.id = `${cat.name}-profile`;
+
+        // Cat Title
+        const h3 = document.createElement('h3');
+        h3.textContent = cat.name;
+        section.appendChild(h3);
+
+        // Image
+        const img = document.createElement('img');
+        if (cat.image_url) {
+            img.src = cat.image_url;
+        } else {
+            img.src = "{% static 'images/placeholder.png' %}";
+        }
+        img.alt = cat.name;
+        img.className = 'cat-profile-image';
+        section.appendChild(img);
+
+        // Cat Speciality
+        const pSpecial = document.createElement('p');
+        pSpecial.textContent = `Speciality: ${cat.speciality || ''}`;
+        pSpecial.className = 'cat-speciality';
+        section.appendChild(pSpecial);
+
+        // Cat breed
+        const pBreed = document.createElement('p');
+        pBreed.textContent = `Breed: ${cat.breed || ''}`;
+        pBreed.className = 'cat-breed';
+        section.appendChild(pBreed);
+
+        // Cat Biography
+        const pBio = document.createElement('p');
+        pBio.textContent = `${cat.biography || ''}`;
+        pBio.className = 'cat-biography';
+        section.appendChild(pBio);
+
+        catProfiles.setAttribute("data-cat-id", cat.id);
+        catProfiles.appendChild(section);
+        return catProfiles;
+
+    }
 
     // Reused same buildCard function from cardscript.js
     function buildCard(cat) {
@@ -87,11 +154,22 @@
     }
 
     // Build and display all cards
-    if (cats.length > 0) {
+    console.log('DEBUG: Cats data received:', cats);
+    console.log('DEBUG: Number of cats:', cats.length);
+    
+    if (cats && cats.length > 0) {
         cats.forEach(cat => {
-            const card = buildCard(cat);
-            container.appendChild(card);
+            console.log('DEBUG: Building profile for cat:', cat.name);
+            const catProfile = buildCatProfile(cat);
+            container.appendChild(catProfile);
         });
+        console.log('DEBUG: All profiles added to container');
+    } else {
+        console.log('DEBUG: No cats to display');
+    }
+    
+    } catch (error) {
+        console.error('Error in profile page:', error);
     }
 </script>
 {% endblock %}

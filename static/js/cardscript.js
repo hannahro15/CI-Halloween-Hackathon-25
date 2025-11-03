@@ -135,7 +135,14 @@ function buildCard(cat) {
 // helper: read cookie (for csrftoken)
 function getCookie(name) {
   const v = document.cookie.split("; ").find((row) => row.startsWith(name + "="));
-  return v ? decodeURIComponent(v.split("=")[1]) : null;
+  if (v) return decodeURIComponent(v.split("=")[1]);
+  
+  // Fallback to meta tag if cookie not found
+  if (name === "csrftoken") {
+    const meta = document.querySelector('meta[name="csrf-token"]');
+    return meta ? meta.getAttribute('content') : null;
+  }
+  return null;
 }
 
 function getTopCard() {
@@ -246,7 +253,7 @@ function handleSwipe(deltaX) {
 
     // POST when swiped right
     if (deltaX > 0 && catId) {
-      const csrftoken = getCookie("csrftoken");
+      const csrftoken = getCookie("csrftoken") || window.csrfToken;
       fetch(`/add_to_list/${catId}/`, {            // <-- make path absolute (leading '/')
         method: "POST",
         headers: {
