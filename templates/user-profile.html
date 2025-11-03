@@ -68,6 +68,11 @@
         section.className = `cat-profile`;
         section.id = `${cat.name}-profile`;
 
+        // Cat Title
+        const h3 = document.createElement('h3');
+        h3.textContent = cat.name;
+        section.appendChild(h3);
+
         // Image
         const img = document.createElement('img');
         if (cat.image_url) {
@@ -79,24 +84,22 @@
         img.className = 'cat-profile-image';
         section.appendChild(img);
 
-        // Cat Title
-        const h3 = document.createElement('h3');
-        h3.textContent = cat.name;
-        section.appendChild(h3);
-
         // Cat Speciality
         const pSpecial = document.createElement('p');
         pSpecial.textContent = `Speciality: ${cat.speciality || ''}`;
+        pSpecial.className = 'cat-speciality';
         section.appendChild(pSpecial);
 
         // Cat breed
         const pBreed = document.createElement('p');
         pBreed.textContent = `Breed: ${cat.breed || ''}`;
+        pBreed.className = 'cat-breed';
         section.appendChild(pBreed);
 
         // Cat Biography
         const pBio = document.createElement('p');
         pBio.textContent = `${cat.biography || ''}`;
+        pBio.className = 'cat-biography';
         section.appendChild(pBio);
 
         catProfiles.setAttribute("data-cat-id", cat.id);
