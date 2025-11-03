@@ -6,7 +6,6 @@
 {% block extra_head %}<link rel="stylesheet" href='{% static "css/cardstyle.css" %}' />{% endblock %}
 
 {% block content %}
-  {% csrf_token %}
   <!-- <div class="d-flex justify-content-center align-items-center vh-100"> -->
     <div class="mt-4">
       <div class="card-container py-auto my-auto align-middle" id="cardContainer"></div>
@@ -16,5 +15,9 @@
 {% endblock %}
 
 {% block extra_scripts %}
+  <script>
+    // Make CSRF token available to cardscript.js
+    window.csrfToken = '{{ csrf_token }}';
+  </script>
   <script src='{% static "js/cardscript.js" %}'></script>
 {% endblock %}
