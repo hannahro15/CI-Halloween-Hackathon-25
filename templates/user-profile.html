@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-<main class="container-fluid p-0 halloween-home">
+<main class="container-fluid p-0 halloween-home" style="background: url('{% static 'images/background_4.jpg' %}') center center / cover no-repeat; background-attachment: fixed;">
     <section class="container text-center py-5 text-light">
         <h1 class="display-3 spooky-text mb-3">{{ profile.user.username }}'s  Spooky Sanctuary</h1>
         <h2 class="mb-3 fst-italic">Adopted Familiars</h2>
