@@ -59,7 +59,7 @@ footer {
   width: 100%;
 }
 
-footer a {
+/* footer a {
   color: #fff1ea;
   text-decoration: none;
   transition: color 0.3s;
@@ -68,9 +68,37 @@ footer a {
 footer a:hover {
     text-decoration: underline;
     opacity: 0.9;
-}
+} */
 
 .footer-container {
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.btn-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border: 1px solid #ff7518;
+  color: #ff7518;
+  border-radius: 6px;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.btn-github:hover {
+  background-color: #ff7518;
+  color: #000;
+  box-shadow: 0 0 12px #ff7518;
+  transform: scale(1.05);
+}
+
+.github-icon {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
 }
