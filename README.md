@@ -146,6 +146,13 @@ Custom 404 and 500 error pages to enhance user experience in case of navigation 
 
 ![500 error page screenshot](screenshots/500-page.png)
 
+---
+
+### User Profile Page
+Displays user information and their adopted cats.
+
+![User profile page screenshot](screenshots/empty-user-profile.png)
+
 ## Future features
 
 As a team, we plan to continue developing the app beyond its initial demo scope. Our goal is to enhance usability, engagement, and magical matchmaking through the following features:
