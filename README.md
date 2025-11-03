@@ -137,6 +137,8 @@ Enables users to create an account or log in to manage their cat adoptions.
 
 ![Sign-up screenshot](screenshots/signup-page.png)
 
+---
+
 ### Error Pages
 Custom 404 and 500 error pages to enhance user experience in case of navigation errors or server issues.
 
